@@ -11,5 +11,5 @@
   "links": {
     "GHDB": "https://www.exploit-db.com/google-hacking-database"
   },
-  "show_on": []
+  "show_on": ["vapt"]
 }

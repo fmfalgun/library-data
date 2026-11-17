@@ -11,5 +11,5 @@
   "links": {
     "crt.sh": "https://crt.sh"
   },
-  "show_on": []
+  "show_on": ["vapt"]
 }

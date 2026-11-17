@@ -12,5 +12,5 @@
     "nmap.org": "https://nmap.org",
     "GitHub": "https://github.com/nmap/nmap"
   },
-  "show_on": []
+  "show_on": ["vapt"]
 }

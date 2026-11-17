@@ -11,5 +11,5 @@
   "links": {
     "GitHub": "https://github.com/mschwager/fierce"
   },
-  "show_on": []
+  "show_on": ["vapt"]
 }

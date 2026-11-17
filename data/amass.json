@@ -12,5 +12,5 @@
     "GitHub": "https://github.com/owasp-amass/amass",
     "OWASP Project": "https://owasp.org/www-project-amass/"
   },
-  "show_on": []
+  "show_on": ["vapt"]
 }

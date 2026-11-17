@@ -11,5 +11,5 @@
   "links": {
     "ISC BIND": "https://www.isc.org/bind/"
   },
-  "show_on": []
+  "show_on": ["vapt"]
 }
