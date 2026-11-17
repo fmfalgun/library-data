@@ -46,7 +46,8 @@ run_gitleaks() {
 }
 
 # run_records_sync validates the tool records, appends new ones to
-# data/manifest.json, and stages the manifest so it lands in the same commit.
+# data/manifest.json and the README rule list, and stages both so they land
+# in the same commit.
 # A missing python3 is only a note. An invalid record blocks the commit.
 run_records_sync() {
   if ! command -v python3 >/dev/null; then
@@ -54,7 +55,7 @@ run_records_sync() {
     return 0
   fi
   python3 ci/sync-records.py || return 1
-  git add data/manifest.json
+  git add data/manifest.json README.md
 }
 
 # main checks every staged file and exits 1 if any was refused.

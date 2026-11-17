@@ -18,6 +18,16 @@ One JSON file per tool in `data/`, named lowercase-with-dashes (`theharvester.js
 }
 ```
 
+## Rules (checked automatically)
+
+`ci/sync-records.py` checks these on every commit; a record that breaks one cannot be committed. The README's rule list is generated from the `R<n>` lines below; edit the rules here, never in the README.
+
+- **R1 File name.** One record per file in `data/`, named lowercase-with-dashes ending in `.json` (`theharvester.json`).
+- **R2 Valid record.** The file is valid JSON and has a non-empty `name`.
+- **R3 Sites.** `show_on` is a list that uses only known sites: `"portfolio"`, `"vapt"`. An empty list keeps the record stored but shown nowhere.
+- **R4 Category.** A record shown on `portfolio` has a `category`.
+- **R5 Manifest.** `data/manifest.json` lists exactly the record files and is maintained by the check; never edit it by hand. It may not list a file that does not exist.
+
 ## Fields
 
 | Field | Required | Meaning |

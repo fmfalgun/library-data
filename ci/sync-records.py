@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """File purpose: keep data/manifest.json (the list of tool records) in step
-with the data/*.json files, and reject records that break the format in
-docs/RECORD_FORMAT.md.
+with the data/*.json files, reject records that break the rules in
+docs/RECORD_FORMAT.md, and keep the README's rule list generated from that file.
 
 Run from the repo root: python3 ci/sync-records.py
 Exit codes: 0 ok (the manifest may have been rewritten), 1 a record or the
@@ -16,6 +16,10 @@ DATA_DIR = Path("data")
 MANIFEST_FILE = DATA_DIR / "manifest.json"
 FILE_NAME_PATTERN = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*\.json$")
 KNOWN_SITES = {"portfolio", "vapt"}
+README_FILE = Path("README.md")
+RULES_FILE = Path("docs/RECORD_FORMAT.md")
+RULES_START = "<!-- rules:start (generated from docs/RECORD_FORMAT.md by ci/sync-records.py; do not edit) -->"
+RULES_END = "<!-- rules:end -->"
 
 
 def record_files():
@@ -51,6 +55,20 @@ def validate_record(name):
     return problems
 
 
+def write_readme_rules():
+    """Replace the text between the rules markers in README.md with the R<n>
+    lines of docs/RECORD_FORMAT.md. Returns False (and writes nothing) when a
+    marker is missing."""
+    rules = "\n".join(line for line in RULES_FILE.read_text(encoding="utf-8").splitlines() if re.match(r"^- \*\*R\d+ ", line))
+    text = README_FILE.read_text(encoding="utf-8")
+    pattern = re.compile(re.escape(RULES_START) + r".*?" + re.escape(RULES_END), re.S)
+    if not pattern.search(text):
+        print("sync-records: README.md has no rules:start / rules:end markers", file=sys.stderr)
+        return False
+    README_FILE.write_text(pattern.sub(lambda _: RULES_START + "\n" + rules + "\n" + RULES_END, text), encoding="utf-8")
+    return True
+
+
 def main():
     """Validate every record, then append new files to the manifest.
     Returns the process exit code."""
@@ -70,7 +88,7 @@ def main():
     MANIFEST_FILE.write_text(json.dumps(listed + new, indent=2) + "\n", encoding="utf-8")
     if new:
         print("sync-records: added to manifest.json: " + ", ".join(new))
-    return 0
+    return 0 if write_readme_rules() else 1
 
 
 if __name__ == "__main__":
