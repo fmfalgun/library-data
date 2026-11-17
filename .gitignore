@@ -1,0 +1,18 @@
+# Keys and secrets
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*_sk
+id_rsa*
+id_ed25519*
+.env
+.env.*
+!.env.example
+
+# Local tools, editor and OS files
+.tools/
+.vscode/
+.idea/
+.DS_Store

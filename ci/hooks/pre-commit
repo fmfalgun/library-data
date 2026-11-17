@@ -1,0 +1,74 @@
+#!/usr/bin/env bash
+# Pre-commit hook: blocks commits that stage private keys, key files or tokens.
+# Purpose: keep secrets out of this public repo, and keep data/manifest.json
+# in step with the record files (ci/sync-records.py). Needs git, grep and python3; if gitleaks
+# is installed it also scans the staged changes for tokens.
+# Activate with: git config core.hooksPath ci/hooks
+
+set -euo pipefail
+
+# Staged paths with these names or extensions are always refused.
+readonly FORBIDDEN_NAME_PATTERN='(\.pem|\.key|\.p12|\.pfx|\.jks|_sk)$|(^|/)id_(rsa|ed25519|ecdsa)|(^|/)\.env($|\.)'
+
+# A PEM private-key header inside any staged file is refused.
+readonly PRIVATE_KEY_PATTERN='BEGIN [A-Z ]*PRIVATE KEY'
+
+# list_staged_files prints each added, copied, modified or renamed staged
+# path on its own line. Deleted files are skipped: removing a key is fine.
+list_staged_files() {
+  git diff --cached --name-only --diff-filter=ACMR
+}
+
+# is_refused succeeds when the staged file ($1) has a key-like name or a
+# private-key header. It reads the index, so what is checked is exactly what
+# would be committed. On refusal it prints the reason on stderr.
+is_refused() {
+  local path="$1"
+  if [[ "$path" =~ $FORBIDDEN_NAME_PATTERN ]]; then
+    echo "pre-commit: refusing '$path' (key or env file name)" >&2
+    return 0
+  fi
+  if git show ":$path" | grep -aqE "$PRIVATE_KEY_PATTERN"; then
+    echo "pre-commit: refusing '$path' (contains a private key)" >&2
+    return 0
+  fi
+  return 1
+}
+
+# run_gitleaks scans the staged changes and succeeds when nothing is found.
+# A missing gitleaks is only a note, so a fresh clone can still commit.
+run_gitleaks() {
+  if ! command -v gitleaks >/dev/null; then
+    echo "pre-commit: gitleaks not installed; skipping token scan" >&2
+    return 0
+  fi
+  gitleaks git --pre-commit --staged --redact --no-banner
+}
+
+# run_records_sync validates the tool records, appends new ones to
+# data/manifest.json, and stages the manifest so it lands in the same commit.
+# A missing python3 is only a note. An invalid record blocks the commit.
+run_records_sync() {
+  if ! command -v python3 >/dev/null; then
+    echo "pre-commit: python3 not installed; skipping records sync" >&2
+    return 0
+  fi
+  python3 ci/sync-records.py || return 1
+  git add data/manifest.json
+}
+
+# main checks every staged file and exits 1 if any was refused.
+main() {
+  local path refused=0
+  while IFS= read -r path; do
+    if is_refused "$path"; then refused=1; fi
+  done < <(list_staged_files)
+  run_gitleaks || refused=1
+  run_records_sync || refused=1
+  if (( refused )); then
+    echo "pre-commit: commit blocked. Unstage the file(s) and keep secrets out of git." >&2
+  fi
+  return "$refused"
+}
+
+main "$@"

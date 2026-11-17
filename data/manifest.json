@@ -1,0 +1,20 @@
+[
+  "amass.json",
+  "assetnote.json",
+  "crtsh.json",
+  "dig.json",
+  "dnsdumpster.json",
+  "fierce.json",
+  "gau.json",
+  "google-dorks.json",
+  "httprobe.json",
+  "nmap.json",
+  "seclists.json",
+  "ssh-sftp.json",
+  "subfinder.json",
+  "theharvester.json",
+  "waybackurls.json",
+  "wc.json",
+  "whatweb.json",
+  "whois.json"
+]
