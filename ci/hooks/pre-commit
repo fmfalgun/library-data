@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Pre-commit hook: blocks commits that stage private keys, key files or tokens.
-# Purpose: keep secrets out of this public repo, and keep data/manifest.json
+# Purpose: keep secrets out of this public repo, and keep the manifests
 # in step with the record files (ci/sync-records.py). Needs git, grep and python3; if gitleaks
 # is installed it also scans the staged changes for tokens.
 # Activate with: git config core.hooksPath ci/hooks
@@ -46,7 +46,7 @@ run_gitleaks() {
 }
 
 # run_records_sync validates the tool records, appends new ones to
-# data/manifest.json and the README rule list, and stages both so they land
+# the manifests and the README rule list, and stages both so they land
 # in the same commit.
 # A missing python3 is only a note. An invalid record blocks the commit.
 run_records_sync() {
@@ -55,7 +55,7 @@ run_records_sync() {
     return 0
   fi
   python3 ci/sync-records.py || return 1
-  git add data/manifest.json README.md
+  git add data/tools/manifest.json data/people/manifest.json README.md
 }
 
 # main checks every staged file and exits 1 if any was refused.

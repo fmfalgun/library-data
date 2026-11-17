@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""File purpose: keep data/manifest.json (the list of tool records) in step
-with the data/*.json files, reject records that break the rules in
-docs/RECORD_FORMAT.md, and keep the README's rule list generated from that file.
+"""File purpose: keep the manifests (data/tools/manifest.json and
+data/people/manifest.json) in step with their record files, reject records
+that break the rules in docs/RECORD_FORMAT.md, and keep the README's rule list
+generated from that file.
 
 Run from the repo root: python3 ci/sync-records.py
-Exit codes: 0 ok (the manifest may have been rewritten), 1 a record or the
+Exit codes: 0 ok (manifests and README may have been rewritten), 1 a record or
 manifest is invalid (each problem is printed as "<file>: message").
 """
 import json
@@ -12,8 +13,8 @@ import re
 import sys
 from pathlib import Path
 
+KINDS = ("tools", "people")
 DATA_DIR = Path("data")
-MANIFEST_FILE = DATA_DIR / "manifest.json"
 FILE_NAME_PATTERN = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*\.json$")
 KNOWN_SITES = {"portfolio", "vapt"}
 README_FILE = Path("README.md")
@@ -22,37 +23,90 @@ RULES_START = "<!-- rules:start (generated from docs/RECORD_FORMAT.md by ci/sync
 RULES_END = "<!-- rules:end -->"
 
 
-def record_files():
-    """Return the sorted names of the record files (every data/*.json except the manifest)."""
-    return sorted(p.name for p in DATA_DIR.glob("*.json") if p.name != MANIFEST_FILE.name)
+def kind_dir(kind):
+    """Return the folder holding the records of one kind ('tools' or 'people')."""
+    return DATA_DIR / kind
 
 
-def load_manifest():
-    """Return the manifest's list of file names, or an empty list if the file is absent."""
-    if not MANIFEST_FILE.exists():
-        return []
-    return json.loads(MANIFEST_FILE.read_text(encoding="utf-8"))
+def record_files(kind):
+    """Return the sorted names of a kind's record files (every *.json except its manifest)."""
+    return sorted(p.name for p in kind_dir(kind).glob("*.json") if p.name != "manifest.json")
 
 
-def validate_record(name):
-    """Return the problems found in one record file (an empty list means valid).
-    Checks: file name shape, valid JSON object, a name, show_on as a list of
-    known sites, and a category when the record is shown on the portfolio."""
+def load_manifest(kind):
+    """Return a kind's manifest as a list of file names, or [] if it is absent."""
+    path = kind_dir(kind) / "manifest.json"
+    return json.loads(path.read_text(encoding="utf-8")) if path.exists() else []
+
+
+def load_record(kind, name):
+    """Return the parsed record, or None when the file is not valid JSON."""
+    try:
+        return json.loads((kind_dir(kind) / name).read_text(encoding="utf-8"))
+    except ValueError:
+        return None
+
+
+def validate_record(kind, name, tool_names):
+    """Return the problems found in one record (an empty list means valid).
+    Checks: file name shape, valid JSON with a name, show_on as a list of known
+    sites, the group field needed for the portfolio (tools: category, people:
+    domain), and for people that every entry of "tools" names a tool record."""
     problems = []
     if not FILE_NAME_PATTERN.match(name):
         problems.append("file name must be lowercase-with-dashes ending in .json")
-    try:
-        record = json.loads((DATA_DIR / name).read_text(encoding="utf-8"))
-    except ValueError as err:
-        return problems + ["invalid JSON: %s" % err]
+    record = load_record(kind, name)
+    if not isinstance(record, dict):
+        return problems + ["not a valid JSON object"]
     if not str(record.get("name", "")).strip():
         problems.append('"name" is required')
     show_on = record.get("show_on")
     if not isinstance(show_on, list) or not set(show_on) <= KNOWN_SITES:
         problems.append('"show_on" must be a list using only: %s' % ", ".join(sorted(KNOWN_SITES)))
-    elif "portfolio" in show_on and not record.get("category"):
-        problems.append('"category" is required when shown on the portfolio')
+    elif "portfolio" in show_on:
+        group = "category" if kind == "tools" else "domain"
+        if not record.get(group):
+            problems.append('"%s" is required when shown on the portfolio' % group)
+    if kind == "people":
+        linked = record.get("tools")
+        if not isinstance(linked, list) or not set(linked) <= tool_names:
+            problems.append('"tools" must be a list of existing tool record names')
     return problems
+
+
+def tool_record_names():
+    """Return the set of "name" values of all valid tool records."""
+    names = set()
+    for file in record_files("tools"):
+        record = load_record("tools", file)
+        if isinstance(record, dict) and record.get("name"):
+            names.add(record["name"])
+    return names
+
+
+def collect_problems(tool_names):
+    """Return {"<kind>/<file>": [problems]} for every record and manifest entry
+    that is invalid, across both kinds."""
+    found = {}
+    for kind in KINDS:
+        files = record_files(kind)
+        for file in files:
+            found["%s/%s" % (kind, file)] = validate_record(kind, file, tool_names)
+        for file in load_manifest(kind):
+            if file not in files:
+                found.setdefault("%s/%s" % (kind, file), []).append("listed in manifest.json but the file is missing")
+    return {key: value for key, value in found.items() if value}
+
+
+def write_manifests():
+    """Append record files missing from each manifest. Returns the added names."""
+    added = []
+    for kind in KINDS:
+        listed = load_manifest(kind)
+        new = [f for f in record_files(kind) if f not in listed]
+        (kind_dir(kind) / "manifest.json").write_text(json.dumps(listed + new, indent=2) + "\n", encoding="utf-8")
+        added += ["%s/%s" % (kind, f) for f in new]
+    return added
 
 
 def write_readme_rules():
@@ -70,24 +124,17 @@ def write_readme_rules():
 
 
 def main():
-    """Validate every record, then append new files to the manifest.
-    Returns the process exit code."""
-    files = record_files()
-    problems = {name: validate_record(name) for name in files}
-    listed = load_manifest()
-    for name in listed:
-        if name not in files:
-            problems.setdefault(name, []).append("listed in manifest.json but the file is missing")
-    failed = {name: found for name, found in problems.items() if found}
-    for name, found in sorted(failed.items()):
+    """Validate every record, then update the manifests and the README rule
+    list. Returns the process exit code."""
+    problems = collect_problems(tool_record_names())
+    for key, found in sorted(problems.items()):
         for message in found:
-            print("%s: %s" % (name, message), file=sys.stderr)
-    if failed:
+            print("%s: %s" % (key, message), file=sys.stderr)
+    if problems:
         return 1
-    new = [name for name in files if name not in listed]
-    MANIFEST_FILE.write_text(json.dumps(listed + new, indent=2) + "\n", encoding="utf-8")
-    if new:
-        print("sync-records: added to manifest.json: " + ", ".join(new))
+    added = write_manifests()
+    if added:
+        print("sync-records: added to manifests: " + ", ".join(added))
     return 0 if write_readme_rules() else 1
 
 
