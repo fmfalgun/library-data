@@ -1,0 +1,17 @@
+{
+  "name": "Tom Gundersen",
+  "handle": null,
+  "domain": "Linux Networking & System Software",
+  "era": "2010s",
+  "org": "systemd project",
+  "why_notable": "systemd developer who wrote the original systemd-resolved: the 2014 manual page and sources carry 'Copyright 2014 Tom Gundersen' and list him as developer of the Network Name Resolution manager. Working alongside systemd-networkd, the service let Linux keep DNS servers per network link instead of in one global /etc/resolv.conf, the foundation that later became the caching DNS, LLMNR, mDNS, DNSSEC and DNS-over-TLS resolver that resolvectl controls today.",
+  "links": {
+    "systemd-resolved (2014 man page)": "https://sources.debian.org/src/systemd/215-17/man/systemd-resolved.html"
+  },
+  "tools": [
+    "resolvectl"
+  ],
+  "show_on": [
+    "portfolio"
+  ]
+}

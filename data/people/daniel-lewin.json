@@ -1,0 +1,17 @@
+{
+  "name": "Daniel Lewin",
+  "handle": null,
+  "domain": "Algorithms & Internet Infrastructure (CDNs)",
+  "era": "1990s-2001",
+  "org": "MIT (graduate student, Algorithms Group); Akamai Technologies (co-founder and CTO)",
+  "why_notable": "Daniel 'Danny' Lewin was an Israeli-American MIT graduate student, formerly an officer in an elite IDF unit, who co-authored the 1997 consistent-hashing paper with Tom Leighton and David Karger and co-founded Akamai with Leighton in 1998. He found the name, Hawaiian for 'clever' or 'cool', in a Hawaiian–English dictionary. The consistent-hashing scheme he worked on became the basis of distributed web caching and of Akamai's content delivery network, the model most later CDNs followed. He was killed aged 31 aboard American Airlines Flight 11 on 11 September 2001, believed to be the first victim of the attacks, after trying to stop the hijackers.",
+  "links": {
+    "Wikipedia": "https://en.wikipedia.org/wiki/Daniel_M._Lewin"
+  },
+  "tools": [
+    "CDN"
+  ],
+  "show_on": [
+    "portfolio"
+  ]
+}

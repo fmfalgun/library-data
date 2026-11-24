@@ -1,0 +1,17 @@
+{
+  "name": "Michael Sawyer",
+  "handle": null,
+  "domain": "DNS & Internet Infrastructure",
+  "era": "1990s-2000s",
+  "org": "BIND 9 development team (Internet Software Consortium / ISC)",
+  "why_notable": "Credited as the second original author of dig: he rewrote it for the ground-up BIND 9 rewrite around 2000, building on BIND 9's libraries. His rewrite allowed several lookups on one command line, added batch mode and a cleaner query-option (+flag) syntax, and supported EDNS. That code is the basis of the dig that ships today in dnsutils/bind-utils on Linux, BSD and macOS.",
+  "links": {
+    "dig (Wikipedia)": "https://en.wikipedia.org/wiki/Dig_(command)"
+  },
+  "tools": [
+    "dig"
+  ],
+  "show_on": [
+    "portfolio"
+  ]
+}

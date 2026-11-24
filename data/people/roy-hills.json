@@ -1,0 +1,19 @@
+{
+  "name": "Roy Hills",
+  "handle": "royhills",
+  "domain": "Networking & Host Discovery",
+  "era": "2000s–present",
+  "org": "NTA Monitor Ltd (UK)",
+  "why_notable": "Wrote arp-scan at the UK security testing firm NTA Monitor (copyright 2005, first public release 2006) and still maintains it, having moved development from an internal SVN repository to GitHub for the 1.10.0 release (2022). He took ARP, a protocol that had run silently inside operating systems since 1982, and made it a deliberate discovery tool: raw ARP frames sent to a whole subnet at once, replies matched as they arrive, vendors named from the IEEE OUI list, and stacks fingerprinted with arp-fingerprint. Also the author of ike-scan, the IPsec VPN discovery and fingerprinting tool. Every Kali or Parrot user who runs arp-scan --localnet to find live hosts or a free IP is using his code.",
+  "links": {
+    "GitHub": "https://github.com/royhills",
+    "arp-scan": "https://github.com/royhills/arp-scan"
+  },
+  "tools": [
+    "arp-scan"
+  ],
+  "show_on": [
+    "portfolio",
+    "vapt"
+  ]
+}

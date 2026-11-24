@@ -1,0 +1,26 @@
+{
+  "name": "CDN",
+  "purpose": "Content Delivery Network: a globally distributed system of edge servers (PoPs) that caches and serves websites, APIs, software downloads and video close to users, steering each user to a nearby edge with DNS-based mapping or BGP anycast, to cut latency, offload the origin, lower transit cost and absorb DDoS traffic",
+  "author": "F. Thomson Leighton and Daniel Lewin (Akamai, from the 1997 consistent-hashing paper by Karger, Lehman, Leighton, Panigrahy, Levine and Lewin)",
+  "org": "Akamai Technologies (first large commercial CDN, MIT spin-out); today an industry category led by Akamai, Cloudflare and Amazon CloudFront, followed by Google, Microsoft and Fastly, plus private CDNs such as Netflix Open Connect and Google Global Cache",
+  "year": "1998",
+  "language": "N/A (architecture/service; edge software is mostly C/C++, with Rust, Go and Lua in newer stacks)",
+  "category": "Networking Tools",
+  "phase": "Content Delivery & Internet Infrastructure",
+  "why_notable": "CDNs grew out of FTP mirrors and shared proxy caches (Harvest, then Squid, with ICP in RFC 2186/2187) when popular pages started melting single servers. At MIT, Tom Leighton's algorithms group and his student Danny Lewin co-wrote 'Consistent Hashing and Random Trees' (STOC 1997) and turned it into Akamai, an MIT $50K finalist incorporated on 20 August 1998, which put thousands of edge caches in other people's networks and steered users with a DNS mapping system that uses short (about 20 s) TTLs. Lewin was killed on American Airlines Flight 11 on 9/11, and Leighton became CEO in 2013. The idea then evolved through the IETF CDI work (RFC 3466, 2003) and CDNI (RFC 6707/7336, 2014); anycast moved from DNS root servers to HTTP with Cloudflare (2010); ISP-embedded caches arrived with Google Global Cache and Netflix Open Connect, whose appliances run BGP inside the ISP; ECS (RFC 7871, 2016) improved DNS steering behind public resolvers; and RFC 9111 (HTTP caching), RFC 9211 (Cache-Status) and RFC 9213 (CDN-Cache-Control) came in 2022, alongside edge compute (Lambda@Edge, Cloudflare Workers), HTTP/3/QUIC and consolidation (Edgio's assets to Akamai in 2024, StackPath's CDN shut down). For network engineers a CDN is a peering and traffic-engineering problem as much as a caching one. Anycast picks a PoP by BGP policy, not distance, so one ISP exit can send a country to the wrong continent, while DNS steering works per resolver, which is why the choice between the ISP resolver, Google 8.8.8.8 (sends ECS) and Cloudflare 1.1.1.1 (no ECS) changes which edge users reach. Daily work covers IXP and PNI peering, hosting OCA/GGC racks, BGP communities and local-pref, telling routing, resolver, cache and origin faults apart with dig, curl cache headers (cf-cache-status, x-cache, x-amz-cf-pop, Akamai Pragma debug), cdn-cgi/trace, mtr -z and ASN lookups, and the anycast gotchas: PMTUD, origin-IP leaks and stateful middleboxes.",
+  "links": {
+    "Wikipedia": "https://en.wikipedia.org/wiki/Content_delivery_network",
+    "Akamai": "https://www.akamai.com",
+    "Consistent hashing paper (STOC 1997)": "https://dl.acm.org/doi/10.1145/258533.258660",
+    "RFC 7336 (CDNI framework)": "https://www.rfc-editor.org/rfc/rfc7336",
+    "RFC 9111 (HTTP caching)": "https://www.rfc-editor.org/rfc/rfc9111",
+    "RFC 9211 (Cache-Status)": "https://www.rfc-editor.org/rfc/rfc9211",
+    "RFC 7871 (EDNS Client Subnet)": "https://www.rfc-editor.org/rfc/rfc7871",
+    "Netflix Open Connect": "https://openconnect.netflix.com/en/",
+    "Study notes": "https://github.com/fmfalgun/library-data/blob/main/notes/tools/cdn.md"
+  },
+  "show_on": [
+    "portfolio",
+    "vapt"
+  ]
+}

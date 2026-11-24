@@ -1,0 +1,23 @@
+{
+  "name": "Device Posture",
+  "purpose": "Zero Trust Architecture concept: checks the security state of an endpoint (disk encryption, Secure Boot/TPM attestation, OS patch level, MDM enrollment, EDR health and risk score, firewall, device certificate) each time it requests access, then re-checks it during the session, so that the policy engine can grant, limit or revoke access based on the requesting device as well as the user's identity",
+  "author": "Concept lineage: NAC/NAP/TCG TNC (mid-2000s); Google BeyondCorp (Rory Ward, Betsy Beyer et al., 2014); formalised in NIST SP 800-207 by Scott Rose, Oliver Borchert, Stu Mitchell and Sean Connelly (2020)",
+  "org": "Google (BeyondCorp); NIST ITL and NCCoE; CISA (Zero Trust Maturity Model); implemented by IdP, MDM, EDR and ZTNA vendors (Microsoft Intune/Entra, Jamf, Cloudflare, Zscaler, CrowdStrike)",
+  "year": "2014 (BeyondCorp; NAC precursors mid-2000s; NIST SP 800-207 in 2020)",
+  "language": "n/a (architecture concept; expressed as vendor policy-as-code and compliance policies)",
+  "category": "Security Concepts",
+  "phase": "Zero Trust Architecture",
+  "why_notable": "Perimeter security trusted network location; device posture replaces that with a verified statement about the endpoint itself. Its roots are mid-2000s Network Access Control (Cisco NAC, Microsoft NAP, TCG Trusted Network Connect, and the IETF NEA work in RFC 5209/5792/5793), which checked health once, at the switch port. After Operation Aurora (2009), Google's BeyondCorp, described by Rory Ward and Betsy Beyer in ;login: in 2014 and in further papers through 2018, made device state an input to every request: a device inventory, a Trust Inferer that assigns trust tiers, an access control engine and an access proxy in front of each app. NIST SP 800-207 (August 2020; Rose, Borchert, Mitchell, Connelly) made posture part of the zero trust tenets, with continuous asset-state monitoring feeding the Policy Engine that grants, denies or revokes access. EO 14028 (2021) pushed US agencies to adopt it, CISA's Zero Trust Maturity Model 2.0 (April 2023) defined a devices pillar running from self-reported characteristics up to continuous verification, IETF RFC 9334 (2023) standardised remote attestation, and NIST SP 1800-35 (June 2025) showed 19 commercial builds. Today the signal chain runs from producers (MDM such as Intune and Jamf, EDR risk scores, ZTNA agents such as Cloudflare WARP, osquery, and TPM, Secure Enclave or Play Integrity attestation) through a policy decision point (conditional access or an SSE policy engine) to enforcement points (proxies, ZTNA gateways, NAC). For a security architect, the decisions are which source signs the evidence (hardware attestation, then MDM, then agent, then user), how sensitivity tiers map to posture requirements, how long the exposure window is (check interval + token lifetime + grace period), what happens when the policy engine fails, and the traps: Intune's default of treating devices with no compliance policy as compliant, grace periods that are really access decisions, posture data that is only self-reported, and Linux fleets with little or no attestation.",
+  "links": {
+    "NIST SP 800-207": "https://doi.org/10.6028/NIST.SP.800-207",
+    "NIST SP 1800-35": "https://csrc.nist.gov/News/2025/implementing-a-zero-trust-architecture-sp-1800-35",
+    "BeyondCorp (2014 paper)": "https://www.usenix.net/system/files/login/articles/login_dec14_02_ward.pdf",
+    "CISA ZTMM 2.0 (Microsoft guide)": "https://learn.microsoft.com/en-us/security/zero-trust/cisa-zero-trust-maturity-model-intro",
+    "Cloudflare posture checks": "https://developers.cloudflare.com/cloudflare-one/identity/devices/warp-client-checks/",
+    "Intune compliance + Conditional Access": "https://learn.microsoft.com/en-us/microsoft-365/solutions/manage-devices-with-intune-require-compliance",
+    "Study notes": "https://github.com/fmfalgun/library-data/blob/main/notes/tools/device-posture.md"
+  },
+  "show_on": [
+    "portfolio"
+  ]
+}

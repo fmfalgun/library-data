@@ -1,0 +1,24 @@
+{
+  "name": "WireGuard",
+  "purpose": "Fast, minimal, kernel-level VPN tunnel: creates an encrypted Layer-3 network interface between peers that authenticate each other purely by exchanging Curve25519 public keys, with fixed modern cryptography and no cipher negotiation, certificates or user accounts",
+  "author": "Jason A. Donenfeld",
+  "org": "Edge Security / WireGuard LLC (zx2c4); mainlined in the Linux kernel, with ports maintained by the WireGuard project and OpenBSD/FreeBSD developers",
+  "year": "2015 (public snapshots 2016; stable 1.0 in Linux 5.6, March 2020)",
+  "language": "C (Linux kernel module, WireGuardNT, OpenBSD/FreeBSD), Go (wireguard-go), Rust (BoringTun), Swift/Java (mobile apps)",
+  "category": "Networking Tools",
+  "why_notable": "Security researcher Jason A. Donenfeld (zx2c4) designed WireGuard because he needed a stealthy tunnel for penetration-testing engagements and found IPsec and OpenVPN too complex to configure or audit; he presented it in the NDSS 2017 paper 'WireGuard: Next Generation Kernel Network Tunnel'. Instead of cipher agility it fixes one suite (Noise_IKpsk2 handshake, Curve25519 ECDH, ChaCha20-Poly1305, BLAKE2s, SipHash24, HKDF), uses a 1-RTT handshake with TAI64N replay timestamps, rotates keys every two minutes for forward secrecy, stays silent to unauthenticated packets (mac1/mac2 plus cookie replies against DoS), and implements 'cryptokey routing' where AllowedIPs is both routing table and source ACL, all in about 4,000 lines that were formally verified with Tamarin and CryptoVerif. Upstreaming was delayed by his dispute with the Linux crypto API (the Zinc library), but Linus Torvalds called it a work of art and it was merged in Linux 5.6 (29 March 2020), then reached Android's GKI, OpenBSD (June 2020), FreeBSD, Windows via the WireGuardNT kernel driver (2021) and every router OS; wireguard-tools (wg, wg-quick) is at v1.0.20260223. It is now the data plane under Tailscale, Netbird, Netmaker, Cloudflare WARP, NordLynx, Mullvad and Proton, and under Kubernetes encryption in Cilium and Calico, while Rosenpass adds post-quantum keys through the PSK slot and AmneziaWG obfuscates it against DPI censorship. Network engineers use it for site-to-site and routed overlays (minding the 60/80-byte overhead and MTU 1420); sysadmins run it through wg-quick, systemd-networkd and network namespaces; DevOps teams build multi-cloud meshes; blue teams detect it by fixed 148/92-byte handshakes and guard its unrevocable private keys; pentesters pivot through it and hunt leaked configs; cryptographers study it as the reference Noise deployment; mobile and embedded developers embed wireguard-go and value its idle silence; and commercial VPN operators work around its static-IP, endpoint-in-memory design to keep no-logs promises.",
+  "links": {
+    "Homepage": "https://www.wireguard.com",
+    "Source (git)": "https://git.zx2c4.com/",
+    "GitHub mirror": "https://github.com/WireGuard",
+    "Docs (quick start)": "https://www.wireguard.com/quickstart/",
+    "Protocol & cryptography": "https://www.wireguard.com/protocol/",
+    "Whitepaper (NDSS 2017)": "https://www.wireguard.com/papers/wireguard.pdf",
+    "Rosenpass (post-quantum add-on)": "https://rosenpass.eu",
+    "Study notes": "https://github.com/fmfalgun/library-data/blob/main/notes/tools/wireguard.md"
+  },
+  "show_on": [
+    "portfolio",
+    "vapt"
+  ]
+}

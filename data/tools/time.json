@@ -1,0 +1,21 @@
+{
+  "name": "time",
+  "purpose": "Run a command and report how long it took (wall-clock, user CPU, kernel CPU) and, in GNU time, its peak memory, page faults, disk I/O and context switches",
+  "author": "Bell Labs (Unix original, Version 3, 1973); David Keppel (GNU time, 1990), later David MacKenzie and Assaf Gordon",
+  "org": "AT&T Bell Labs; GNU Project / Free Software Foundation",
+  "year": "1973",
+  "language": "C",
+  "category": "Unix Tools",
+  "why_notable": "First Edition Unix (1971) already had a 'tm' command, and a time utility proper appeared in Version 3 AT&T Unix; csh then made it a shell builtin and ksh a pipeline keyword, which is why POSIX words time so it may be either. On Linux the name now hides several different programs: the bash, zsh and mksh keywords (which can time functions, builtins and whole pipelines), GNU time at /usr/bin/time (written by David Keppel in 1990, reworked by David MacKenzie, frozen at 1.7 from 1996 until Assaf Gordon revived it as 1.8 in 2017 and 1.9 in 2018), the BusyBox applet on Alpine and embedded systems, and toybox on Android. All of them fork, exec and collect the child's struct rusage from wait4(), so they report the same kernel counters in different formats, and they share a history of bugs: GNU time 1.7 printed peak RSS four times too high for two decades because it treated Linux's kilobyte value as pages, BusyBox 1.36 still does the same, and toybox 0.8.9 mis-prints user/sys fractions in its default mode. Debian's /bin/sh (dash) has no keyword, so scripts silently run the binary or fail when minimal and container images lack it. It is the first, cheapest measurement tool for sysadmins triaging slow jobs (real versus user+sys separates waiting from computing), SREs and HPC engineers sizing memory limits from %M, developers and CI pipelines catching regressions, data engineers deciding whether an ETL step is CPU- or I/O-bound, security testers sanity-checking time-based behaviour, and students learning user mode versus kernel mode. Its limits (one run, largest-process RSS rather than the whole tree) lead on to hyperfine, perf stat and cgroup v2 memory.peak via systemd-run.",
+  "links": {
+    "Homepage": "https://www.gnu.org/software/time/",
+    "Docs": "https://www.gnu.org/software/time/manual",
+    "Source": "https://ftp.gnu.org/gnu/time/",
+    "Bash time keyword": "https://www.gnu.org/software/bash/manual/html_node/Pipelines.html",
+    "POSIX time": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/time.html",
+    "Study notes": "https://github.com/fmfalgun/library-data/blob/main/notes/tools/time.md"
+  },
+  "show_on": [
+    "portfolio"
+  ]
+}

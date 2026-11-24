@@ -1,0 +1,21 @@
+{
+  "name": "Daniel Stenberg",
+  "handle": "bagder",
+  "domain": "Internet Protocols & Network Transfer (HTTP, TLS, QUIC)",
+  "era": "1990s-present",
+  "org": "curl project (founder and lead developer); Haxx AB (co-founder); Mozilla (Firefox networking, 2014-2018); wolfSSL (2019-2023); now runs commercial curl support",
+  "why_notable": "Swedish engineer who has led curl since 1996. He started from Rafael Sagula's HttpGet to let an IRC bot fetch currency rates, renamed it urlget and then curl (4.0, 20 March 1998), and has packaged every release since, over 275 of them, now on a fixed eight-week cycle. He split out libcurl in 2000 and kept its API and ABI stable for decades, which let curl spread to an estimated tens of billions of devices, from Windows and macOS to phones, cars and the Mars helicopter. He wrote the free books 'HTTP2 explained' and 'HTTP/3 explained' and 'Everything curl', worked on Firefox networking at Mozilla, and won the Polhem Prize (2017) for curl. He has run the project as an independent BDFL with a public CVE process. In 2026 he became a leading voice on AI's effect on open-source security: he ended curl's HackerOne bug bounty on 31 January 2026 over a flood of AI 'slop' reports, paused vulnerability intake in July, and the same year published curl's record CVE batches, including the HIGH-severity CVE-2026-92392 found by AI-assisted scanning. He writes weekly at daniel.haxx.se.",
+  "links": {
+    "Website": "https://daniel.haxx.se/",
+    "Blog": "https://daniel.haxx.se/blog/",
+    "GitHub": "https://github.com/bagder",
+    "curl": "https://curl.se/"
+  },
+  "tools": [
+    "curl"
+  ],
+  "show_on": [
+    "portfolio",
+    "vapt"
+  ]
+}

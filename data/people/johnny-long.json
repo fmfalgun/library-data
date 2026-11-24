@@ -2,14 +2,15 @@
   "name": "Johnny Long",
   "handle": "j0hnny",
   "domain": "Search Engine Hacking & Web Archives",
-  "era": "2004–present",
-  "org": "Solutionary (acquired by NTT); Hackers for Charity (founder)",
-  "why_notable": "Created Google Hacking as a formalized technique (2004) and built the Google Hacking Database (GHDB) — a community-maintained catalog of search operator queries that expose sensitive indexed content: open directories, config files, login panels, credentials in URLs, exposed cameras, router admin pages. Published Google Hacking for Penetration Testers, the foundational text. The GHDB migrated to exploit-db.com and now contains 6500+ entries. Later founded Hackers for Charity, applying security skills to humanitarian technology projects in Uganda.",
+  "era": "2000s-present",
+  "org": "Hackers for Charity (founder); formerly penetration tester and author with Syngress",
+  "why_notable": "Security researcher who in 2002 began cataloguing Google search queries that exposed vulnerable systems and sensitive files, naming them googleDorks and turning a search box into a reconnaissance tool. The collection became the Google Hacking Database (GHDB) in 2004; he presented Google hacking at Black Hat 2004 and DEF CON 13 (2005) and wrote the field's foundational book, Google Hacking for Penetration Testers (Syngress, Dec 2004; Vol. 2 2007; 3rd ed. 2015 with Bill Gardner and Justin Brown), plus No Tech Hacking. In 2010, before leaving on a long-term volunteer mission to Uganda, he handed the GHDB to Offensive Security, which still curates it on Exploit-DB. He founded Hackers for Charity, which places technologists' skills in the service of non-profits. Every pentester, bug bounty hunter or OSINT analyst who opens an engagement with site:/filetype: queries is using the method he popularised.",
   "links": {
+    "Hackers for Charity": "https://www.hackersforcharity.org",
     "GHDB": "https://www.exploit-db.com/google-hacking-database"
   },
   "tools": [
-    "Google Dorks"
+    "Google Dorking"
   ],
   "show_on": [
     "portfolio",

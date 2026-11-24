@@ -1,15 +1,21 @@
 {
   "name": "fierce",
-  "purpose": "Active DNS brute-force with zone transfer attempts, wildcard detection, and IP range reverse-DNS sweep",
-  "author": "Robert 'RSnake' Hansen (original Perl); mschwager (Python rewrite)",
-  "org": "ha.ckers.org (origin)",
-  "year": "2006",
-  "language": "Perl (original); Python (current)",
+  "purpose": "Lightweight DNS scanner that finds hostnames and non-contiguous IP space: NS/SOA lookup, zone transfer attempt, wildcard check, subdomain brute force, then reverse (PTR) lookups on the IPs next to every hit",
+  "author": "Robert 'RSnake' Hansen (original Perl, with id, Vacuum, Robert E Lee and IceShaman); mschwager (Python 3 port)",
+  "org": "ha.ckers.org (origin); open-source on GitHub",
+  "year": "2007",
+  "language": "Python 3 (original Perl)",
   "phase": "Phase 1 — Reconnaissance",
   "category": "Hacking Tools",
-  "why_notable": "Robert 'RSnake' Hansen wrote fierce.pl in 2006 as the first tool to combine DNS AXFR zone transfer attempts with active brute-force in a single pass. RSnake is one of the most influential web security researchers of the 2000s — he ran ha.ckers.org, the pre-social-media hub for web security discussion, and co-coined clickjacking and wrote Slowloris. fierce's wide scan feature (PTR reverse-lookups across the IP range of discovered hosts) finds services that passive tools miss entirely: internal subdomains created yesterday, staging environments, services with no TLS certificates. mschwager rewrote it cleanly in Python 3 around 2017–2019.",
+  "why_notable": "Robert 'RSnake' Hansen of ha.ckers.org wrote fierce.pl (copyright 2006, released 20 February 2007) out of frustration after a web application audit: a company's hosts are spread across unrelated netblocks, so scanning 'their /24' misses most of them. Fierce's answer was to pivot through reverse DNS: after checking the NS and SOA, trying a zone transfer and testing for wildcard DNS (which would make every guess resolve), it brute-forces subdomains and, for every hit, looks up the PTR records of the neighbouring IPs, revealing hosts such as jenkins or vpn-old that no wordlist contains. The phrase 'non-contiguous IP space' became the stated goal of dnsenum too, and SecLists still ships fierce-hostlist.txt. Matt Schwager (mschwager) later ported it to Python 3 under GPL-3.0 to simplify and modernise the codebase; that port, maintained until about 2024 and continued in forks, is what pip, Kali and Debian ship (Debian also keeps the original fierce.pl). Its flags changed with the port (--domain instead of -dns), it runs lookups sequentially (multiprocessing is still a README TODO), and it has no JSON output, so it suits depth rather than million-word lists. Pentesters run it after the main enumeration and internally (--dns-servers <DC> --range) to map networks through PTRs without port scanning; bug bounty hunters use the neighbour walk to find forgotten infrastructure; DNS engineers learn how much descriptive PTR names leak; SOC analysts recognise its small clusters of sequential in-addr.arpa queries; and it appears in CEH, OSCP and CPTS DNS sections.",
   "links": {
-    "GitHub": "https://github.com/mschwager/fierce"
+    "GitHub": "https://github.com/mschwager/fierce",
+    "PyPI": "https://pypi.org/project/fierce/",
+    "Release announcement (2007)": "https://www.darknet.org.uk/2007/02/fierce-domain-scanner-released-domain-reconnaissance-tool/",
+    "Original fierce.pl (Debian source)": "https://sources.debian.org/src/fierce/1.6.0-1/scripts/fierce.pl",
+    "Study notes": "https://github.com/fmfalgun/library-data/blob/main/notes/tools/fierce.md"
   },
-  "show_on": ["vapt"]
+  "show_on": [
+    "vapt"
+  ]
 }

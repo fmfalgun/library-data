@@ -1,15 +1,23 @@
 {
-  "name": "WhatWeb",
-  "purpose": "Web technology fingerprinting — identifies CMS, frameworks, server software, analytics, and JavaScript libraries via 1800+ plugins",
-  "author": "Andrew Horton (urbanadventurer); Brendan Coles (bcoles)",
-  "org": "MorningStar Security",
+  "name": "whatweb",
+  "purpose": "Web technology fingerprinter: identifies the CMS, frameworks, JavaScript libraries, web server, analytics and embedded devices behind a website, with versions, from as little as one HTTP request",
+  "author": "Andrew Horton (urbanadventurer); co-developed with Brendan Coles (bcoles)",
+  "org": "MorningStar Security / Security-Assessment.com (New Zealand); open source on GitHub",
   "year": "2009",
   "language": "Ruby",
-  "phase": "Phase 2 — Scanning & Enumeration",
   "category": "Hacking Tools",
-  "why_notable": "Andrew Horton (New Zealand) built WhatWeb around 2009 because before it, web technology fingerprinting meant manually checking headers, reading source, and guessing CMS paths — workable for one target, impractical for 50 subdomains. The plugin architecture is its key design achievement: adding detection for a new technology is ~5 lines of Ruby DSL (text patterns, version regexes, or MD5 hashes), which lowered the contribution barrier enough to sustain 1800+ plugins from the community. Included in Kali Linux from the BackTrack era, it established the standard Phase 2 pattern that every pentest pipeline now follows: fingerprint the stack with WhatWeb, then route to the CMS-specific scanner (wpscan, joomscan, nikto). Its JSON output integrates cleanly into automated pipelines.",
+  "phase": "Phase 2 — Scanning & Enumeration",
+  "why_notable": "Andrew Horton released WhatWeb 0.3 at Kiwicon III in Wellington on 2 November 2009. He built it for a research project to fingerprint all of New Zealand's web space, and it launched with about 70 plugins. It belongs to the same 2009 wave as Wappalyzer, which moved web recon from simple banner grabbing (reading the HTTP Server header, which RFC 1945, RFC 2616 and RFC 9110 warn reveals too much) to identifying the whole application stack from meta generator tags, cookie names, path patterns such as /wp-content/, JavaScript library filenames, favicon and file MD5 hashes, and HTML tag skeletons. With Brendan Coles as co-developer it grew to over 900 plugins by 2011 and about 1835 today. Each plugin is a Ruby file containing match rules (text, regexp, version, account, md5, tagpattern, url, with a certainty value that defaults to 100) plus optional passive and aggressive blocks of custom code. Four aggression levels control how noisy it is: level 1 makes one stealthy request, level 3 makes extra requests only for plugins that already matched, and level 4 runs every aggressive test against every URL. It logs to brief, verbose, XML, JSON, SQL, MongoDB and ElasticSearch formats. After a 0.4.8-dev period (2012-2017) and the 0.5.x series, the 0.6.x line (2025-2026) brought TLS improvements, .onion scanning through a proxy, cookie retention across redirects and a performance overhaul (0.6.4, April 2026). It remains the default web-fingerprinting step in Kali, OSCP, eJPT and CEH curricula. Pentesters and bug bounty hunters use it to turn a list of URLs into versions and CVEs. SOC and vulnerability-management teams use it to inventory their own web assets and to recognise its User-Agent and probing pattern in logs (MITRE T1595 and T1592.002). AppSec and DevOps engineers use it to check that hardening has removed version leaks. OSINT analysts pivot on the email addresses and analytics IDs it extracts, and network engineers use it to find embedded devices by their admin web interfaces. Known gaps: it does not execute JavaScript, its email regex cuts off TLDs longer than four letters, and its Google Analytics plugin misses GA4 G- IDs.",
   "links": {
-    "GitHub": "https://github.com/urbanadventurer/WhatWeb"
+    "GitHub": "https://github.com/urbanadventurer/WhatWeb",
+    "Homepage": "https://morningstarsecurity.com/research/whatweb",
+    "Docs": "https://github.com/urbanadventurer/WhatWeb/wiki/",
+    "Changelog": "https://github.com/urbanadventurer/WhatWeb/blob/master/CHANGELOG.md",
+    "Kiwicon III talk (2009)": "https://www.exploit-db.com/download/13674",
+    "whatweb-recon": "https://github.com/fmfalgun/whatweb-recon",
+    "Study notes": "https://github.com/fmfalgun/library-data/blob/main/notes/tools/whatweb.md"
   },
-  "show_on": ["vapt"]
+  "show_on": [
+    "vapt"
+  ]
 }

@@ -1,0 +1,19 @@
+{
+  "name": "Brendan Gregg",
+  "handle": "brendangregg",
+  "domain": "Systems Performance & Observability",
+  "era": "2000s-present",
+  "org": "Sun Microsystems; Joyent; Netflix; Intel (Fellow); OpenAI (since 2026)",
+  "why_notable": "Australian performance engineer and author of Systems Performance and BPF Performance Tools. He created the USE method (check every resource for utilisation, saturation and errors), which turns 'find the bottleneck' across CPU, memory, disk and network into a checklist, and invented flame graphs for visualising CPU profiles. His DTraceToolkit and later bcc/bpftrace tools made kernel-level tracing practical for everyday Linux performance work. He was a senior performance architect at Netflix and an Intel Fellow, left Intel in December 2025, and joined OpenAI in February 2026 to work on AI datacenter performance.",
+  "links": {
+    "Website": "https://www.brendangregg.com/",
+    "USE Method": "https://www.brendangregg.com/usemethod.html",
+    "Flame Graphs": "https://www.brendangregg.com/flamegraphs.html"
+  },
+  "tools": [
+    "System Resources"
+  ],
+  "show_on": [
+    "portfolio"
+  ]
+}

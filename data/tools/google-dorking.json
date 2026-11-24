@@ -1,0 +1,24 @@
+{
+  "name": "Google Dorking",
+  "purpose": "Passive reconnaissance technique that chains Google's advanced search operators (site:, inurl:, intitle:, intext:, filetype:/ext:, before:/after:) to surface exposed files, login panels, directory listings, error messages and leaked data that a search engine has already indexed, without sending a single packet to the target",
+  "author": "Johnny Long",
+  "org": "Independent (johnny.ihackstuff.com, Hackers for Charity); Google Hacking Database maintained by OffSec on Exploit-DB since 2010",
+  "year": "2002",
+  "language": "N/A (search-query technique; GHDB is a web-hosted query catalogue)",
+  "category": "Hacking Tools",
+  "phase": "Phase 1 — Reconnaissance",
+  "why_notable": "Search operators descend from 1970s field-restricted library search (DIALOG) and AltaVista's title:/url:/host: operators of the mid-1990s, but it was security researcher Johnny Long who, from 2002, began collecting Google queries that exposed vulnerable systems and sensitive files, calling them googleDorks (the 'dork' being the careless admin, not the searcher). The list became the Google Hacking Database (GHDB) in 2004, was taken to Black Hat 2004 and DEF CON 13, and was codified in the Syngress book Google Hacking for Penetration Testers (Dec 2004; Vol. 2 2007; 3rd ed. 2015 with Bill Gardner and Justin Brown). In 2010 Long handed the GHDB to Offensive Security, which still curates community-submitted dorks on Exploit-DB across 14 categories. The idea works because crawlers index whatever is reachable and robots.txt is only a politeness convention (RFC 9309), so the index becomes a free, pre-built map of other people's misconfigurations that can be queried without touching the target. Google has steadily narrowed it: link:/info: (2017), related: (2023) and cache: (2024) were retired, before:/after: (2019) were the last operators added, JavaScript became mandatory for search in January 2025 and the &num=100 parameter stopped working in September 2025, pushing automation towards official or paid search APIs and wrappers such as pagodo, theHarvester, Recon-ng and SpiderFoot. Today it is the opening move of most pentests and OSINT CTFs (MITRE ATT&CK T1593.002, OWASP WSTG-INFO-01): pentesters and bug bounty hunters use it to find staging hosts, .env/.git/backup files and admin panels; OSINT and threat-intel analysts pivot on people, documents and newly exploitable CVE footprints; blue teams, SEO engineers and privacy officers run the same queries against their own domains to catch leaks and fix them with noindex, authentication, Search Console removals and secret rotation; journalists use the same operators to find primary-source documents. Complementary indexes cover what Google cannot see: Bing (ip:), Yandex, Shodan/Censys (service banners), GitHub code search, crt.sh and the Wayback Machine.",
+  "links": {
+    "GHDB (Exploit-DB)": "https://www.exploit-db.com/google-hacking-database",
+    "Google Search operators (Docs)": "https://developers.google.com/search/docs/monitor-debug/search-operators",
+    "Book (3rd ed.)": "https://shop.elsevier.com/books/google-hacking-for-penetration-testers/gardner/978-0-12-802964-0",
+    "OWASP WSTG-INFO-01": "https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/01-Information_Gathering/01-Conduct_Search_Engine_Discovery_Reconnaissance_for_Information_Leakage",
+    "MITRE ATT&CK T1593.002": "https://attack.mitre.org/techniques/T1593/002/",
+    "dork-runner": "https://github.com/fmfalgun/dork-runner",
+    "Study notes": "https://github.com/fmfalgun/library-data/blob/main/notes/tools/google-dorking.md"
+  },
+  "show_on": [
+    "portfolio",
+    "vapt"
+  ]
+}

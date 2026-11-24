@@ -1,0 +1,18 @@
+{
+  "name": "Rafael Sagula",
+  "handle": null,
+  "domain": "Internet Protocols & Network Transfer (HTTP)",
+  "era": "1990s",
+  "org": "Universidade Federal do Rio Grande do Sul (UFRGS), Brazil (student at the time)",
+  "why_notable": "Brazilian student who wrote HttpGet, a tiny C command-line tool for fetching web pages, and released version 0.1 on 11 November 1996 from his UFRGS homepage. Daniel Stenberg found it while building an IRC bot, sent fixes and features, and took over maintenance. HttpGet became urlget in 1997 and curl 4.0 on 20 March 1998, and curl's version numbering still descends from Sagula's releases. Every curl and libcurl installation traces back to his roughly hundred-line program.",
+  "links": {
+    "Original urlget/HttpGet page (archived)": "http://www.inf.ufrgs.br/~sagula/urlget.html",
+    "curl history": "https://curl.se/docs/history.html"
+  },
+  "tools": [
+    "curl"
+  ],
+  "show_on": [
+    "portfolio"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "name": "Jay Townsend",
+  "handle": "L1ghtn1ng",
+  "domain": "Offensive Security & OSINT Tooling",
+  "era": "2010s-present",
+  "org": "theHarvester core team; discover (Lee Baird) team; Kali theHarvester packaging contributor",
+  "why_notable": "A security engineer who is listed as the first contact for comments, bugs and requests in theHarvester's README and is one of its core maintainers (with Matthew Brown and Lee Baird) since Christian Martorella stepped back. He is a major contributor to the 4.x codebase that replaced the single-threaded Python 2 script: asyncio and aiohttp, the REST API, Docker images, uv packaging, typed and linted modules, hardened CI and a steady release cadence that added sources such as Mojeek, venacus and Hudson Rock. He also contributes to Lee Baird's discover recon framework and to DNSRecon, and helps package theHarvester for Kali Linux.",
+  "links": {
+    "GitHub": "https://github.com/L1ghtn1ng",
+    "Sponsors": "https://github.com/sponsors/L1ghtn1ng"
+  },
+  "tools": [
+    "theHarvester"
+  ],
+  "show_on": [
+    "portfolio"
+  ]
+}

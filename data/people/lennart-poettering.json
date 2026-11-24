@@ -1,0 +1,18 @@
+{
+  "name": "Lennart Poettering",
+  "handle": "poettering",
+  "domain": "Linux System Software & Init Systems",
+  "era": "2000s–present",
+  "org": "Red Hat (until 2022); Microsoft (2022–2026); Amutable (co-founder and Chief Engineer, 2026–); systemd project",
+  "why_notable": "German software engineer (born 1980) and the original author of Avahi (mDNS/DNS-SD zero-configuration networking), PulseAudio and systemd, the init and service manager now running most Linux distributions. As systemd's project leader he announced systemd 216 in August 2014, which made systemd-resolved a pretty complete caching DNS and LLMNR stub resolver, pushed NetworkManager in 2016 to hand its per-link DNS data to resolved, and steered the resolver's growth into DNSSEC, DNS-over-TLS, mDNS and the resolvectl client (systemd 239, 2018), giving Linux per-interface DNS, routing domains and split DNS for VPNs. He worked at Red Hat for many years, moved to Microsoft in 2022, and in January 2026 left to co-found the Berlin company Amutable with Chris Kühl and Christian Brauner, focused on deterministic, cryptographically verifiable integrity for Linux systems, while remaining systemd's leader. His designs are both foundational and fiercely debated, which makes him one of the most influential and most argued-about figures in modern Linux.",
+  "links": {
+    "Website": "https://0pointer.net/blog/",
+    "GitHub": "https://github.com/poettering"
+  },
+  "tools": [
+    "resolvectl"
+  ],
+  "show_on": [
+    "portfolio"
+  ]
+}

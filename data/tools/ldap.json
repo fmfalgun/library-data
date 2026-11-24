@@ -1,0 +1,24 @@
+{
+  "name": "LDAP",
+  "purpose": "Lightweight Directory Access Protocol: the open IETF standard (and its OpenLDAP client tools and slapd server) for reading, searching and changing a networked tree of users, groups, machines and permissions, used as the identity store behind logins, SSO, VPNs, mail and Active Directory",
+  "author": "Tim Howes (University of Michigan), with Wengyik Yeong (PSI) and Steve Kille (ISODE Consortium); OpenLDAP implementation by the OpenLDAP Project (Kurt Zeilenga, Howard Chu and contributors)",
+  "org": "University of Michigan / IETF (protocol); OpenLDAP Foundation and Symas Corp (OpenLDAP software)",
+  "year": "1993",
+  "language": "C (OpenLDAP libldap, liblber, slapd); wire format ASN.1 BER over TCP",
+  "category": "Networking Tools",
+  "why_notable": "LDAP began as a lightweight front door to the heavyweight OSI X.500 directory: Tim Howes led the NSF-funded work at the University of Michigan, the first LDAP software shipped in 1992, and Yeong, Howes and Kille published it as RFC 1487 in July 1993, carrying X.500's tree-of-entries data model over plain TCP (port 389) with string DNs and a simplified BER encoding. The U-M gateways quickly became standalone servers; LDAPv2 (RFC 1777, 1995) and LDAPv3 (RFC 2251, 1997, adding SASL, controls, extended operations and UTF-8) followed, consolidated as RFC 4510-4519 in 2006. U-M's code seeded two lines that still dominate: Netscape Directory Server (later Red Hat/389 Directory Server and FreeIPA) and the OpenLDAP Project (1998), whose slapd moved to the memory-mapped LMDB backend and keeps its own configuration as an LDAP tree (cn=config); the 2.6 LTS line reached 2.6.14 in August 2026. Microsoft made LDAPv3 the access protocol of Active Directory in 2000, and Windows Server 2025 now requires LDAP signing by default with channel binding 'when supported'. Today LDAP is the identity source under PAM/NSS (SSSD), Keycloak and SAML/OIDC bridges, VPNs, RADIUS, mail and CI tools. Sysadmins run slapd or AD and manage users with LDIF, ldapsearch/ldapmodify and slapcat backups; IAM engineers design the DIT, schema, ACLs and search-then-bind authentication; network engineers point firewalls and VPN appliances at ports 389/636/3268; DevOps teams wire it into CI and Kubernetes; developers must escape filters to avoid LDAP injection; pentesters use LDAP as the main Active Directory reconnaissance channel (anonymous binds, BloodHound collection, NTLM relay to LDAP) while SOC analysts hunt those queries and enforce signing, LDAPS and channel binding; and protocol researchers study it as the classic case of a lightweight profile outliving its X.500 parent.",
+  "links": {
+    "Homepage": "https://www.openldap.org",
+    "Docs": "https://www.openldap.org/doc/admin26/",
+    "Git": "https://git.openldap.org/openldap/openldap",
+    "RFC 1487 (LDAPv1)": "https://www.rfc-editor.org/rfc/rfc1487",
+    "RFC 4511 (LDAPv3 protocol)": "https://www.rfc-editor.org/rfc/rfc4511",
+    "LDAP tools directory": "https://ldap.com/ldap-tools/",
+    "Microsoft: LDAP signing and channel binding": "https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/ldap-signing",
+    "Study notes": "https://github.com/fmfalgun/library-data/blob/main/notes/tools/ldap.md"
+  },
+  "show_on": [
+    "portfolio",
+    "vapt"
+  ]
+}

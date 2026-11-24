@@ -1,0 +1,22 @@
+{
+  "name": "arp-scan",
+  "purpose": "Layer-2 host discovery: sends ARP requests to every address in a local subnet and lists each IP that answers, with its MAC address and NIC vendor, so you can see live hosts, duplicate IPs and free addresses",
+  "author": "Roy Hills",
+  "org": "NTA Monitor Ltd (UK); now community-maintained on GitHub",
+  "year": "2005 (first public release 2006)",
+  "language": "C (libpcap)",
+  "phase": "Phase 2 — Scanning & Enumeration",
+  "category": "Hacking Tools",
+  "why_notable": "ARP itself dates from David C. Plummer's RFC 826 (November 1982): IP knows logical addresses, Ethernet only delivers to 48-bit MAC addresses, so a host broadcasts 'who has 192.168.1.10?' and the owner replies with its MAC. For two decades that exchange ran invisibly inside every OS and you could only read your own cache (arp -a). In 2005 Roy Hills at the UK security firm NTA Monitor turned it into a scanner: arp-scan builds raw ARP frames itself, fires one at every address in a range back-to-back, collects replies asynchronously, and waits only once at the end, so a /24 finishes in one to three seconds. Because a host must answer ARP to talk on the LAN at all, firewalls that drop ping cannot hide it, which makes it more reliable than a ping sweep; it also flags duplicate IPs (DUP), names the NIC vendor from the IEEE OUI list, sends 802.1Q-tagged probes (--vlan) and fingerprints stacks (arp-fingerprint). Released openly in 2006 and moved to GitHub with 1.10.0 (2022), it is packaged by every major Linux distribution, BSD and Homebrew. Its speed is a matter of privilege, not hardware: on Linux, root (CAP_NET_RAW) lets it write raw frames; an unrooted Android app cannot, so it must trigger the kernel's own ARP through ping or TCP connects, paying about three seconds of ARP retries for every unused IP, and since Android 10 it cannot even read the ARP table, which is why phone scanners such as Fing lean on mDNS, SSDP and NetBIOS and take tens of seconds. Windows tools use the SendARP() API or the Npcap driver instead. Alternatives include nmap -sn -PR, netdiscover (with a passive mode), arping -D for RFC 5227 conflict checks, and arpwatch for monitoring. Network engineers use it to find free IPs before assigning a static address, chase IP conflicts and build asset inventories; security teams use it for internal recon, rogue-device hunting and spotting ARP spoofing. Its limit: it sees only the local Layer-2 segment and has no IPv6 support, where Neighbor Discovery (RFC 4861) replaces ARP.",
+  "links": {
+    "GitHub": "https://github.com/royhills/arp-scan",
+    "User Guide": "https://github.com/royhills/arp-scan/wiki/arp-scan-User-Guide",
+    "RFC 826 (ARP)": "https://www.rfc-editor.org/rfc/rfc826",
+    "RFC 5227 (IPv4 conflict detection)": "https://www.rfc-editor.org/rfc/rfc5227",
+    "Library guide": "https://fmfalgun.github.io/library/?page=arp-scan-guide"
+  },
+  "show_on": [
+    "portfolio",
+    "vapt"
+  ]
+}

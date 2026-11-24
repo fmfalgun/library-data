@@ -1,0 +1,18 @@
+{
+  "name": "Brendan Coles",
+  "handle": "bcoles",
+  "domain": "Offensive Security & Exploit Development",
+  "era": "2010s–present",
+  "org": "Independent security researcher; WhatWeb co-developer; Metasploit Framework contributor",
+  "why_notable": "Co-developer of WhatWeb alongside Andrew Horton. He wrote and maintained a large share of its roughly 1800 fingerprint plugins and is credited as co-author in the README, the man page and many plugin headers. Outside WhatWeb he is a prolific contributor of exploit and post-exploitation modules to the Metasploit Framework, which links fingerprinting (what is this site running?) with exploitation (which modules apply?).",
+  "links": {
+    "GitHub": "https://github.com/bcoles"
+  },
+  "tools": [
+    "whatweb"
+  ],
+  "show_on": [
+    "portfolio",
+    "vapt"
+  ]
+}

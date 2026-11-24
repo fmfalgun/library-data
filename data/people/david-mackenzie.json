@@ -1,0 +1,20 @@
+{
+  "name": "David MacKenzie",
+  "handle": null,
+  "domain": "Unix / Systems Foundations",
+  "era": "1980s-2000s",
+  "org": "GNU Project / Free Software Foundation",
+  "why_notable": "One of the most prolific authors of the GNU userland. The version banners of the GNU utilities on every Linux system credit him: 'Written by Paul Rubin and David MacKenzie' for wc, 'Richard M. Stallman and David MacKenzie' for ls, and many more in the fileutils, textutils and shellutils packages that merged into GNU coreutils. He also created GNU Autoconf, the configure-script generator behind most free-software builds. He heavily reworked David Keppel's GNU time into the 1.x line that distributions shipped unchanged as 1.7 from 1996 until 2017.",
+  "links": {
+    "GNU coreutils": "https://www.gnu.org/software/coreutils/",
+    "GNU Autoconf": "https://www.gnu.org/software/autoconf/",
+    "GNU time": "https://www.gnu.org/software/time/"
+  },
+  "tools": [
+    "time",
+    "wc"
+  ],
+  "show_on": [
+    "portfolio"
+  ]
+}

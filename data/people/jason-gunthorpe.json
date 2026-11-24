@@ -1,0 +1,18 @@
+{
+  "name": "Jason Gunthorpe",
+  "handle": "jgg",
+  "domain": "Linux Package Management & Kernel Development",
+  "era": "1990s-present",
+  "org": "Debian Project (APT Development Team); later Linux kernel RDMA/IOMMU work (Mellanox, NVIDIA)",
+  "why_notable": "Jason Gunthorpe wrote most of the original APT for Debian's 'deity' project, which Release Manager Brian White commissioned in 1997 to replace dselect. His March 1998 'It's working' mail on the deity list marks the birth of apt-get, and APT's source still carries the line 'Apt is copyright 1997, 1998, 1999 Jason Gunthorpe and others'. He designed APT as a reusable library (libapt-pkg) with thin front ends, wrote the problem resolver, the acquire (download) system and CD-ROM support, and steered releases through Debian 2.1 'slink' in 1999. That design, with automatic dependency resolution over repository indices, became the model for distribution package managers that followed. He later became a long-time Linux kernel developer and maintainer in the RDMA and IOMMU (iommufd) subsystems.",
+  "links": {
+    "deity list, March 1998": "https://lists.debian.org/deity/1998/03/msg00013.html",
+    "APT copyright": "https://sources.debian.org/copyright/license/apt/1.4.10"
+  },
+  "tools": [
+    "apt"
+  ],
+  "show_on": [
+    "portfolio"
+  ]
+}

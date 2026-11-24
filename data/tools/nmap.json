@@ -1,16 +1,25 @@
 {
   "name": "nmap",
-  "purpose": "Network mapper — port scanning, service/version detection, OS fingerprinting, and scriptable network security auditing",
-  "author": "Gordon Lyon (Fyodor)",
-  "org": "Insecure.org",
+  "purpose": "Network mapper: discovers live hosts, open ports, service versions and operating systems, and runs Lua NSE scripts for enumeration and vulnerability checks",
+  "author": "Gordon \"Fyodor\" Lyon",
+  "org": "Nmap Project (Insecure.Com LLC); key maintainers include Daniel Miller, David Fifield, Patrick Donnelly, Ron Bowes",
   "year": "1997",
-  "language": "C (core); Lua (NSE scripts)",
-  "phase": "Phase 2 — Scanning & Enumeration",
+  "language": "C, C++ (core), Lua 5.4 (NSE scripts), Python (Zenmap, Ndiff)",
   "category": "Hacking Tools",
-  "why_notable": "Gordon Lyon published nmap in Phrack #51 (September 1997) — the definitive underground hacker magazine — introducing techniques like SYN scanning, FIN/NULL/Xmas scans, decoy scanning, and fragmented packet scanning that were either new or previously undocumented publicly. Before nmap, scanning meant typing telnet commands one port at a time. Version 2.x (late 1990s) added OS fingerprinting by observing how TCP/IP stacks deviate from RFC 793 in unique ways; -sV (2001) added service/version detection turning nmap from a port scanner into a network intelligence tool; NSE (2006) added a Lua scripting engine with ~600 scripts ranging from banner grabs to CVE exploitation. Maintained continuously for 25+ years, it ships by default in Kali Linux, Parrot OS, and BlackArch. Its appearance in The Matrix Reloaded (2003) with a real nmap 2.54BETA7 command is one of the most technically accurate hacking sequences in mainstream film.",
+  "phase": "Phase 2 — Scanning & Enumeration",
+  "why_notable": "Gordon 'Fyodor' Lyon published Nmap on 1 September 1997 in Phrack #51 ('The Art of Port Scanning') to unify the one-trick scanners of the day (strobe, SATAN modules) into a single tool that exploits RFC 793 TCP behaviour with SYN, FIN, Xmas, NULL, ACK, UDP, idle (antirez's 1998 technique) and decoy scans. It added remote OS fingerprinting (Phrack #54, 1998; second generation 2006), regex-based service/version detection (2003) and, in 4.50 (2007), the Nmap Scripting Engine: Lua coroutines on the non-blocking Nsock library, with prerule/hostrule/portrule/postrule triggers and categories (safe, default, discovery, vuln, brute, intrusive, exploit, dos...), now about 600+ scripts backed by protocol libraries for HTTP, SMB, LDAP, SNMP and TLS. The suite grew Zenmap, Ncat, Nping and Ndiff, full IPv6 in Nmap 6 (2012), TLS vulnerability checks in Nmap 7 (2015), and the Npcap Windows driver; 7.90 (2020) moved to the Nmap Public Source License, which is why Fedora/RHEL and SUSE still ship 7.92 while upstream reached 7.99 in March 2026. It uses raw packets via libpcap/Npcap with a TCP-like congestion controller, and its OS, service and MAC databases are crowd-sourced. Its stable XML output feeds Metasploit, Faraday, Dradis and SIEMs. Pentesters use it as the recon backbone, network engineers use it to verify ACLs (filtered vs closed, TTLs in --reason), SOC analysts learn its probe signatures, vulnerability-management teams schedule scans and diff baselines with ndiff, sysadmins catch rogue listeners, NSE developers write Lua checks, auditors use the XML as segmentation evidence, and researchers treat it as the stateful reference that stateless ZMap and masscan (2013) were built to outrun at internet scale.",
   "links": {
-    "nmap.org": "https://nmap.org",
-    "GitHub": "https://github.com/nmap/nmap"
+    "Homepage": "https://nmap.org/",
+    "GitHub": "https://github.com/nmap/nmap",
+    "Docs": "https://nmap.org/book/man.html",
+    "NSE Docs": "https://nmap.org/nsedoc/",
+    "NSE Chapter": "https://nmap.org/nse",
+    "Changelog": "https://nmap.org/changelog",
+    "Practice target": "http://scanme.nmap.org/",
+    "Study notes": "https://github.com/fmfalgun/library-data/blob/main/notes/tools/nmap.md",
+    "nmap.org": "https://nmap.org"
   },
-  "show_on": ["vapt"]
+  "show_on": [
+    "vapt"
+  ]
 }

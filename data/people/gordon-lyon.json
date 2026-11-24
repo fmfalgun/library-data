@@ -1,0 +1,19 @@
+{
+  "name": "Gordon Lyon",
+  "handle": "Fyodor",
+  "domain": "Network Security & Scanning",
+  "era": "1997-present",
+  "org": "Nmap Project / Insecure.Com LLC; founder of SecLists.org, SecTools.org and Insecure.org; co-founder of the Honeynet Project",
+  "why_notable": "Gordon 'Fyodor' Lyon wrote Nmap and released it in Phrack #51 in September 1997, then defined remote OS detection through TCP/IP stack fingerprinting in Phrack #54 (1998). He has led the project for nearly three decades: version detection, the Nmap Scripting Engine (presented with David Fifield at Black Hat and Defcon 2010), Zenmap, Ncat, Nping and the Npcap Windows packet-capture driver. He funds the work by selling OEM licences, which drove the 2020 move to the Nmap Public Source License. He wrote the book 'Nmap Network Scanning' (2008) and runs the SecLists.org mailing-list archives and SecTools.org, the long-running survey of top security tools.",
+  "links": {
+    "Website": "https://insecure.org/fyodor/",
+    "Nmap": "https://nmap.org/",
+    "Book": "https://nmap.org/book/"
+  },
+  "tools": [
+    "nmap"
+  ],
+  "show_on": [
+    "portfolio"
+  ]
+}

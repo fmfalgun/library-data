@@ -1,16 +1,23 @@
 {
   "name": "amass",
-  "purpose": "Attack surface mapping via a graph model — correlates subdomains, IPs, ASNs, and organizational relationships",
+  "purpose": "OWASP attack surface mapping and external asset discovery: expands a root domain, ASN, CIDR or address range into a stored graph of subdomains, IP addresses, netblocks, ASNs and organisations, using passive OSINT sources, certificate transparency, zone-transfer attempts, DNS brute force and name alterations",
   "author": "Jeff Foley (caffix)",
-  "org": "OWASP",
-  "year": "2017",
+  "org": "OWASP Foundation (Flagship project); owasp-amass GitHub organisation",
+  "year": "2017 (OWASP project from 2018)",
   "language": "Go",
-  "phase": "Phase 1 — Reconnaissance",
   "category": "Hacking Tools",
-  "why_notable": "Jeff Foley's core insight when releasing amass in Go in 2017 was that subdomains aren't isolated findings — they're nodes in a relationship network. While every prior tool produced flat lists, amass modeled assets as a typed graph: a domain resolves to an IP, that IP is in an ASN, that ASN is registered to an organization with other ASNs and IPs. This enabled a qualitatively different question: not 'what subdomains does example.com have?' but 'what is the full internet attack surface of the company that owns example.com?' Adopted by OWASP and included in their Testing Guide. The v5 rewrite (2023–24) introduced the Open Asset Model (OAM) — a formal typed-graph standard for internet assets, running as an engine+client architecture.",
+  "phase": "Phase 1 — Reconnaissance",
+  "why_notable": "Subdomain enumeration began with DNS zone transfers (AXFR, RFC 1034/1035, later RFC 5936), then wordlist brute force (dnsmap, fierce, dnsenum, dnsrecon), search-engine scraping (theHarvester, Sublist3r), passive DNS (2005) and Certificate Transparency logs (RFC 6962, 2013; crt.sh). In 2017 Jeff Foley, a penetration-testing and red-team lead at National Grid with a background in offensive cyber R&D at Northrop Grumman, built Amass to automate the slow, error-prone recon he did when showing organisations what they look like from the internet. Written in Go, it combined dozens of passive data sources, AXFR, certificate grabs, brute force, name alterations and recursion into one concurrent engine. More importantly, it stored how each name links to IPs, netblocks, ASNs and organisations, which turned enumeration into attack surface mapping. It became an OWASP project in 2018 and later an OWASP Flagship project. The Open Asset Model (OAM), announced at DEF CON 30 (2022), and the asset-db library (SQLite or PostgreSQL) arrived with v4 in 2023. v4.2 removed the db subcommand, and v5 (2025) split collection into a background engine with a REST API on 127.0.0.1:4000. In v5 the CLI is enum (collect) plus subs, track, viz and assoc (query the graph); the old intel subcommand and enum -o/-json are gone. As of November 2026 it is at v5.1.3 under Apache-2.0. Pentesters and red teams use it to build the target list before scanning, bug bounty hunters run it nightly and diff with amass track to catch new hosts first, ASM and blue teams schedule it against a shared Postgres asset-db to find shadow IT and dangling CNAMEs, OSINT and threat-intel analysts pivot through ASNs and associations without touching the target, SOC analysts check whether a host is 'ours' during incidents, DNS administrators audit what their zones and CT logs reveal, and Go developers drive its engine API or build on OAM. Alternatives include subfinder, assetfinder, findomain, puredns/shuffledns with massdns, BBOT, SpiderFoot and Recon-ng, plus commercial ASM platforms such as Microsoft Defender EASM and Cortex Xpanse.",
   "links": {
+    "Homepage": "https://owasp.org/www-project-amass/",
     "GitHub": "https://github.com/owasp-amass/amass",
+    "Docs": "https://owasp-amass.github.io/docs/",
+    "Open Asset Model": "https://github.com/owasp-amass/open-asset-model",
+    "asset-db": "https://github.com/owasp-amass/asset-db",
+    "Study notes": "https://github.com/fmfalgun/library-data/blob/main/notes/tools/amass.md",
     "OWASP Project": "https://owasp.org/www-project-amass/"
   },
-  "show_on": ["vapt"]
+  "show_on": [
+    "vapt"
+  ]
 }

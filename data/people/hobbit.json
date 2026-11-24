@@ -1,0 +1,19 @@
+{
+  "name": "Hobbit",
+  "handle": "*Hobbit*",
+  "domain": "Network Security & TCP/IP Tooling",
+  "era": "1990s-2000s",
+  "org": "Avian Research (avian.org)",
+  "why_notable": "Pseudonymous hacker who wrote netcat (nc) and announced it on the Bugtraq mailing list on 28 October 1995, with the final 1.10 release in March 1996. He designed it as a network version of the Unix cat command: a tool that moves raw bytes faithfully between a TCP or UDP socket and a pipe, scripts cleanly and keeps errors on stderr, which telnet did not. It became known as the 'TCP/IP Swiss army knife' and every later variant credits his code: OpenBSD's rewrite, Debian's netcat-traditional, GNU netcat, BusyBox nc and Nmap's Ncat. His source deliberately put the -e program-execution feature behind a compile flag named GAPING_SECURITY_HOLE. He is also known for the 1997 CIFS/SMB security analysis 'CIFS: Common Insecurities Fail Scrutiny'. His real name has never been made widely public.",
+  "links": {
+    "netcat 1.10 (archived)": "https://nc110.sourceforge.io/",
+    "Bugtraq announcement (1995)": "https://seclists.org/bugtraq/1995/Oct/28"
+  },
+  "tools": [
+    "nc"
+  ],
+  "show_on": [
+    "portfolio",
+    "vapt"
+  ]
+}

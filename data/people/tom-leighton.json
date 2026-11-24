@@ -1,0 +1,18 @@
+{
+  "name": "Tom Leighton",
+  "handle": null,
+  "domain": "Algorithms & Internet Infrastructure (CDNs)",
+  "era": "1980s-present",
+  "org": "MIT (Professor of Applied Mathematics, Algorithms Group at the Laboratory for Computer Science); Akamai Technologies (co-founder, CEO since 2013)",
+  "why_notable": "F. Thomson 'Tom' Leighton is an MIT applied mathematician who headed the Algorithms Group at MIT's Laboratory for Computer Science and co-authored 'Consistent Hashing and Random Trees: Distributed Caching Protocols for Relieving Hot Spots on the World Wide Web' (STOC 1997) with David Karger, Danny Lewin and others. With Lewin he turned that research into Akamai, a finalist in the 1998 MIT $50K competition, incorporated on 20 August 1998, and the first large commercial content delivery network, steering users with DNS mapping onto edge caches placed inside ISPs worldwide. He was elected Akamai's CEO in 2013, replacing Paul Sagan, and has led its expansion from caching into security (DDoS, WAF) and edge cloud.",
+  "links": {
+    "Wikipedia": "https://en.wikipedia.org/wiki/F._Thomson_Leighton",
+    "Akamai": "https://www.akamai.com"
+  },
+  "tools": [
+    "CDN"
+  ],
+  "show_on": [
+    "portfolio"
+  ]
+}

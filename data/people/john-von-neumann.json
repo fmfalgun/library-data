@@ -1,0 +1,18 @@
+{
+  "name": "John von Neumann",
+  "handle": null,
+  "domain": "Computer Architecture & Mathematics",
+  "era": "1920s-1957",
+  "org": "Institute for Advanced Study (Princeton); Moore School EDVAC project; Manhattan Project",
+  "why_notable": "Hungarian-American mathematician whose 1945 First Draft of a Report on the EDVAC described the stored-program computer: a central processing unit (arithmetic and control) separate from a memory holding both instructions and data, connected by a single path. That design, now called the von Neumann architecture, is the root of the CPU/RAM distinction every modern machine still uses, and its single shared path to memory is the origin of the 'von Neumann bottleneck' that caches, the memory hierarchy and today's memory wall all try to work around. He also built the IAS machine at Princeton (1951) and made foundational contributions to game theory, quantum mechanics and cellular automata.",
+  "links": {
+    "Wikipedia": "https://en.wikipedia.org/wiki/John_von_Neumann",
+    "First Draft of a Report on the EDVAC": "https://en.wikipedia.org/wiki/First_Draft_of_a_Report_on_the_EDVAC"
+  },
+  "tools": [
+    "System Resources"
+  ],
+  "show_on": [
+    "portfolio"
+  ]
+}

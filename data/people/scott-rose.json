@@ -1,0 +1,17 @@
+{
+  "name": "Scott Rose",
+  "handle": null,
+  "domain": "Zero Trust Architecture & Internet Infrastructure Security",
+  "era": "2000s-present",
+  "org": "NIST Information Technology Laboratory (Advanced Network Technologies Division)",
+  "why_notable": "Lead author of NIST SP 800-207 'Zero Trust Architecture' (August 2020), written with Oliver Borchert, Stu Mitchell and Sean Connelly. The publication defined the zero trust tenets and the Policy Engine / Policy Administrator / Policy Enforcement Point model, and made continuous monitoring of asset security posture an input to every access decision. It became the reference that EO 14028, CISA's Zero Trust Maturity Model and the NCCoE's SP 1800-35 builds rest on. At NIST he has also worked on DNS and DNSSEC security guidance.",
+  "links": {
+    "NIST SP 800-207": "https://doi.org/10.6028/NIST.SP.800-207"
+  },
+  "tools": [
+    "Device Posture"
+  ],
+  "show_on": [
+    "portfolio"
+  ]
+}

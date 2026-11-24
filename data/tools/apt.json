@@ -1,0 +1,23 @@
+{
+  "name": "apt",
+  "purpose": "Debian-family package manager front end (apt, apt-get, apt-cache) that resolves dependencies, downloads signed .deb packages from repositories and drives dpkg to install, upgrade, pin, hold and remove software",
+  "author": "Jason Gunthorpe and the APT Development Team (deity project commissioned by Brian White); maintained today mainly by Julian Andres Klode",
+  "org": "Debian Project (APT Development Team, deity@lists.debian.org); Canonical contributes through Ubuntu Foundations",
+  "year": "1998",
+  "language": "C++",
+  "category": "Unix Tools",
+  "why_notable": "In 1997 Debian Release Manager Brian White commissioned 'deity', a project to replace the hard-to-use dselect front end to dpkg, and Jason Gunthorpe wrote most of what became APT: apt-get worked by March 1998 and shipped in Debian 2.1 'slink' (1999), with its logic in a reusable library (libapt-pkg) so synaptic, aptitude, PackageKit and Ubuntu's tools could all sit on top. dpkg only unpacks single .deb files; APT added repository indices, automatic dependency resolution and downloads, which made Debian the template for distribution package management. Secure APT (0.6, 2005) added the trust chain still used today: a GPG-signed InRelease/Release file holds hashes of the Packages indices, which hold hashes of each .deb. APT 1.0 (2014) added the friendly apt command; APT 2.0 followed in 2020; per-repository Signed-By keys and deb822 .sources files replaced the global apt-key model (Ubuntu 24.04 ships ubuntu.sources); and APT 3.0 (April 2025, Debian 13 'trixie') brought a columnar colour UI, Sequoia instead of GnuPG for signature checks and solver3, a fully backtracking DPLL/SAT-style dependency solver by lead developer Julian Andres Klode. Ubuntu 26.04 LTS ships APT 3.2. It remains the spine of Debian, Ubuntu, Mint, Kali and Raspberry Pi OS, coexisting with snaps on Ubuntu. Sysadmins live in apt update/upgrade, apt policy, pin priorities (100/500/990/1001), apt-mark hold and /var/log/apt/history.log; DevOps engineers write apt-get into Dockerfiles with --no-install-recommends, version pins and snapshot mirrors; SREs tune unattended-upgrades and Ubuntu phased updates; packagers ship PPAs and repos with debhelper and reprepro or aptly; security engineers audit Signed-By keyrings, third-party repos, ESM coverage and the fact that maintainer scripts run as root; and pentesters know the sudo apt/apt-get/dpkg and writable /etc/apt/apt.conf.d hook routes to root documented on GTFOBins.",
+  "links": {
+    "Homepage": "https://wiki.debian.org/Apt",
+    "Source": "https://salsa.debian.org/apt-team/apt",
+    "Docs": "https://manpages.debian.org/unstable/apt/apt.8.en.html",
+    "Secure APT": "https://wiki.debian.org/SecureApt",
+    "solver3": "https://blog.jak-linux.org/2024/05/14/solver3/",
+    "Mailing list": "https://lists.debian.org/deity/",
+    "Study notes": "https://github.com/fmfalgun/library-data/blob/main/notes/tools/apt-snap.md"
+  },
+  "show_on": [
+    "portfolio",
+    "vapt"
+  ]
+}

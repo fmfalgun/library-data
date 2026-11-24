@@ -1,0 +1,18 @@
+{
+  "name": "Dan Kegel",
+  "handle": null,
+  "domain": "Network Server Scalability",
+  "era": "1990s-present",
+  "org": "Independent developer; Google",
+  "why_notable": "American software engineer who in 1999 published 'The C10K problem', a survey of why one-thread-or-process-per-connection servers break down at around ten thousand simultaneous clients and of the operating-system interfaces (select, poll, epoll, kqueue, /dev/poll, asynchronous I/O) that fix it. The page became the standard reference for event-driven server design and helped push Linux to add epoll; servers such as nginx, and later async runtimes in Node.js, Go and Rust, follow its conclusions. It is the clearest explanation of why network I/O scales with concurrency rather than with more cores. He also created crosstool for building GCC cross-compilers and worked on Wine.",
+  "links": {
+    "The C10K problem": "http://www.kegel.com/c10k.html",
+    "Website": "http://www.kegel.com/"
+  },
+  "tools": [
+    "System Resources"
+  ],
+  "show_on": [
+    "portfolio"
+  ]
+}

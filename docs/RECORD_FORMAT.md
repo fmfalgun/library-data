@@ -70,6 +70,10 @@ Files are named lowercase-with-dashes. Each folder has a `manifest.json` listing
 | `domain` | if shown on `portfolio` | Section on the Operatives page. |
 | `handle`, `era`, `org`, `why_notable`, `links` | no | Shown as available. |
 
+## Study notes
+
+Longer Markdown study notes for a tool live in `notes/tools/<tool>.md` (one file per tool, lowercase-with-dashes, same stem as the tool record where possible). They are plain reading material: sites do not fetch them, and the record checker does not read them. A tool record links to its note with `links["Study notes"]`, using the GitHub URL `https://github.com/fmfalgun/library-data/blob/main/notes/tools/<tool>.md`. Never put a real target's hostname, credentials, session data or other client material in a note: this repo is public.
+
 ## Adding or changing a record
 
 1. Create or edit the file in `data/tools/` or `data/people/`.

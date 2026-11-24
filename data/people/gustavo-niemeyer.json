@@ -1,0 +1,18 @@
+{
+  "name": "Gustavo Niemeyer",
+  "handle": "niemeyer",
+  "domain": "Linux Software Distribution & Go Infrastructure",
+  "era": "2000s-present",
+  "org": "Canonical Ltd. (snappy/snapd technical lead)",
+  "why_notable": "Gustavo Niemeyer was a long-time Canonical engineer and the technical lead of snappy and snapd, the system behind snap packages and Ubuntu Core. He led the redesign that turned the 2014 Python 'snappy' prototype into the Go-based snapd 2.0 shipped with Ubuntu 16.04 LTS in April 2016, documenting the transition on his labix.org blog, and shaped core ideas such as revisions, channels, interfaces and transactional updates. Outside snaps he is known in the open-source world for python-dateutil and for widely used Go libraries such as go-yaml and the mgo MongoDB driver.",
+  "links": {
+    "Website": "https://labix.org",
+    "Blog: snappy changes (2016)": "https://blog.labix.org/2016/04/20/snappy-changes"
+  },
+  "tools": [
+    "snap"
+  ],
+  "show_on": [
+    "portfolio"
+  ]
+}

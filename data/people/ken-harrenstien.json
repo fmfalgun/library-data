@@ -1,11 +1,14 @@
 {
   "name": "Ken Harrenstien",
-  "handle": null,
+  "handle": "KLH",
   "domain": "DNS & Internet Infrastructure",
-  "era": "Early 1980s",
-  "org": "Stanford Research Institute (SRI-NIC)",
-  "why_notable": "Co-authored RFC 812 (1982) — the first formal specification for the NICNAME/WHOIS protocol. Before that RFC, WHOIS was an informal service Feinler's team ran; Harrenstien turned it into a standard internet protocol. The WHOIS queries that underpin every domain registration lookup today are descendants of that 1982 document.",
+  "era": "1970s-2010s",
+  "org": "MIT AI Lab; SRI International Network Information Center (ARPANET NIC); Google",
+  "why_notable": "ARPANET-era engineer (login KLH) who wrote several of the Internet's earliest directory protocols. At SRI-KL he authored RFC 742, NAME/FINGER (December 1977), the ancestor of finger, and with Vic White of the SRI Network Information Center described NICNAME/WHOIS in RFC 812 (1982): one line sent to TCP port 43, free-form text back. He revised it in RFC 954 (1985), and that simple design is still what every whois client speaks more than forty years later. Deaf since early childhood, he later became a Google software engineer and the technical lead of YouTube's captioning infrastructure, launching automatic speech-recognition captions in November 2009 and expanding them to all videos in 2010, a step that opened a large share of online video to deaf and hard-of-hearing viewers.",
   "links": {
+    "RFC 812 (NICNAME/WHOIS)": "https://www.rfc-editor.org/rfc/rfc812",
+    "RFC 742 (NAME/FINGER)": "https://www.rfc-editor.org/rfc/rfc742",
+    "NPR interview (2009)": "https://www.npr.org/transcripts/124501330",
     "RFC 812": "https://www.rfc-editor.org/rfc/rfc812",
     "RFC 954": "https://www.rfc-editor.org/rfc/rfc954"
   },

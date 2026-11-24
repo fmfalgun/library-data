@@ -1,15 +1,21 @@
 {
   "name": "theHarvester",
-  "purpose": "OSINT aggregator for emails, subdomains, and hostnames from public sources",
-  "author": "Christian Martorella (laramies)",
-  "org": "Edge-Security",
-  "year": "2008",
-  "language": "Python",
-  "phase": "Phase 1 — Reconnaissance",
+  "purpose": "Passive OSINT recon tool: given a domain, it queries about 66 public sources (search engines, Certificate Transparency logs, passive-DNS datasets, threat-intel and breach APIs) and returns normalised hosts/subdomains, emails, IPs, URLs, ASNs and people for that organisation",
+  "author": "Christian Martorella",
+  "org": "Edge-Security; now community-maintained on GitHub (Jay Townsend, Matthew Brown, Lee Baird)",
+  "year": "c. 2008-2010 (v1.x); v2.0 relaunched 2011",
+  "language": "Python (asyncio/aiohttp)",
   "category": "Hacking Tools",
-  "why_notable": "Written by Spanish researcher Christian Martorella around 2008 to automate the tedium of manually Googling a target's email addresses across multiple search engines. It became the canonical OSINT aggregator after being bundled into BackTrack Linux around 2010 — once in BackTrack, every pentest course and certification (OSCP, CEH, SANS) referenced it, making it the industry default. The v4 rewrite (2019) introduced async HTTP via aiohttp and 40+ source modules, each as a separate Python class. It's most useful with API keys configured in api-keys.yaml; without them, Google blocks scraping and many sources silently fail.",
+  "phase": "Phase 1 — Reconnaissance",
+  "why_notable": "Christian Martorella (@laramies) of the Edge-Security group wrote theHarvester in the late 2000s to automate the slowest part of a pentest kickoff: Googling a target and copying out every @domain email. The 1.x versions scraped Google, Bing/MSN and PGP key servers and shipped in BackTrack; version 2.0 moved to Google Code in 2011 and was shown at Black Hat USA Arsenal alongside his Metagoofil and Edge-Security's Wfuzz. Shodan integration added host and banner data. Once Certificate Transparency (RFC 6962) logged every public TLS certificate, the tool's main use shifted from harvesting emails to discovering subdomains through crt.sh and CertSpotter. Version 3.0 brought Python 3, subdomain takeover checks and DNS brute forcing; the 4.x line, maintained by Jay 'L1ghtn1ng' Townsend, Matthew Brown and Lee Baird, rewrote it around asyncio and added a REST API (restfulHarvest), the HarvestView web UI, uv packaging, a SQLite evidence store, JSON/JSONL/XML output, socks proxies and breach/infostealer sources (Hudson Rock, venacus), reaching about 66 sources by 4.11 (2026). Sources are tiered: passive P0 sources run with -b all, while DNS (P1) and direct-contact (P2) sources, as well as active flags (-r resolve, -c brute force, -n reverse DNS, -t takeover, -a API path scan, --screenshot), must be selected explicitly and need the owner's authorisation. Compared with amass or subfinder it finds fewer hosts but returns more kinds of data (emails, people, ASNs, URLs) from one command, which is why it ships with Kali and appears in CEH, OSCP, PNPT and SANS OSINT courses. Pentesters use it to scope external tests; red teams use it for phishing targets and email formats; bug-bounty hunters feed it into dnsx/httpx/nuclei; OSINT and threat-intel analysts use it to profile organisations; blue and ASM teams run it against themselves to find stale DNS, dev hosts exposed in CT logs and internal IPs leaking through public DNS. Caveats: 'passive' still sends the target name to third-party providers, and a source returning nothing proves nothing.",
   "links": {
-    "GitHub": "https://github.com/laramies/theHarvester"
+    "GitHub": "https://github.com/laramies/theHarvester",
+    "Wiki / Install": "https://github.com/laramies/theHarvester/wiki/Installation",
+    "Kali docs": "https://www.kali.org/tools/theharvester/",
+    "Edge-Security": "https://edge-security.com",
+    "My importer": "https://github.com/fmfalgun/harvester-importer"
   },
-  "show_on": ["vapt"]
+  "show_on": [
+    "vapt"
+  ]
 }

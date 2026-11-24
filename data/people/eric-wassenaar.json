@@ -1,0 +1,17 @@
+{
+  "name": "Eric Wassenaar",
+  "handle": null,
+  "domain": "DNS & Internet Infrastructure",
+  "era": "1990s",
+  "org": "Nikhef (Dutch National Institute for Subatomic Physics), Amsterdam",
+  "why_notable": "Network engineer at Nikhef in Amsterdam who took the small BSD/BIND 4 host lookup program and, through the 1990s, turned it into one of the most capable DNS diagnostic tools of its day. His version (distributed as host.tar.Z from ftp.nikhef.nl) added recursive zone listings, checks for non-canonical host names and invalid characters such as underscores, zone caching and extensive zone-consistency checks, making host the hostmaster's tool for auditing whole domains before dig became common. Ports reached platforms as far afield as AmigaOS. ISC's BIND 9 rewrite of host in 2000 kept the name and the core idea (readable one-line answers, -l zone listings, consistency checks) that his version had popularised.",
+  "links": {
+    "host release notes (Amiga port)": "https://se.aminet.net/dev/gg/host-991529.readme"
+  },
+  "tools": [
+    "host"
+  ],
+  "show_on": [
+    "portfolio"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "name": "Andrew Cherenson",
+  "handle": null,
+  "domain": "DNS & Internet Infrastructure",
+  "era": "1980s",
+  "org": "UC Berkeley",
+  "why_notable": "Wrote nslookup as a class project at UC Berkeley in 1986, while DNS was still replacing the HOSTS.TXT file. It first shipped in 4.3-Tahoe BSD and was carried into BIND, where it became the first widely available interactive tool for querying a name server directly and reading its raw answers. Microsoft and ReactOS later wrote their own versions of it. ISC's attempt to deprecate it in BIND 9 was reversed in 2004, and the tool still ships on almost every Unix, macOS and Windows system about forty years later.",
+  "links": {
+    "Wikipedia (nslookup)": "https://en.wikipedia.org/wiki/Nslookup"
+  },
+  "tools": [
+    "nslookup"
+  ],
+  "show_on": [
+    "portfolio",
+    "vapt"
+  ]
+}

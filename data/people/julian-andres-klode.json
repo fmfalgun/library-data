@@ -1,0 +1,19 @@
+{
+  "name": "Julian Andres Klode",
+  "handle": "juliank",
+  "domain": "Linux Package Management",
+  "era": "2000s-present",
+  "org": "Debian Project (APT Development Team); Canonical (Ubuntu Foundations)",
+  "why_notable": "Julian Andres Klode is a Debian Developer and the main driving force behind APT today, working on it as part of Canonical's Ubuntu Foundations team. He led the APT 2.x and 3.x series and designed solver3, a new fully backtracking dependency solver that he describes as a DPLL-style SAT solver without pure-literal elimination: it first appeared behind --solver 3.0 in APT 2.9.3 (May 2024) and became the default in APT 3.0 (April 2025, Debian 13 'trixie'). The 3.0 series also brought a columnar, colour user interface, Sequoia for signature verification, an automatic pager and dependency explanations; he dedicated it to the late Debian and Ubuntu developer Steve Langasek. His work matters to every Debian and Ubuntu administrator because it decides how upgrades and conflicts are resolved on millions of machines.",
+  "links": {
+    "Blog": "https://blog.jak-linux.org/",
+    "solver3": "https://blog.jak-linux.org/2024/05/14/solver3/",
+    "LWN: APT 3.0": "https://lwn.net/Articles/1017315"
+  },
+  "tools": [
+    "apt"
+  ],
+  "show_on": [
+    "portfolio"
+  ]
+}

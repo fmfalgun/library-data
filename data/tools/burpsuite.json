@@ -1,0 +1,21 @@
+{
+  "name": "Burp Suite",
+  "purpose": "Intercepting HTTP(S)/WebSocket proxy and web-security testing toolkit: catch a browser or app request, inspect and modify it, replay it by hand (Repeater), automate payload-driven attacks (Intruder), scan for vulnerabilities (Scanner), and detect blind/out-of-band bugs (Collaborator)",
+  "author": "Dafydd Stuttard",
+  "org": "PortSwigger Ltd (Knutsford, UK)",
+  "year": "2003",
+  "language": "Java (Swing desktop UI)",
+  "phase": "Phase 3 — Exploitation & Web Application Testing",
+  "category": "Hacking Tools",
+  "why_notable": "Dafydd Stuttard, a UK penetration tester writing under the handle PortSwigger ('one who swigs port'), released the first Burp in June 2003 as a hobby tool to automate his own manual web testing; Burp Proxy followed in August 2003, and the toolkit grew around one loop that still defines it — catch a request, inspect it, alter it, send it again, and watch where the application's assumptions break. He founded PortSwigger Ltd (commonly dated 2008) and co-wrote The Web Application Hacker's Handbook, which taught a generation to test the Burp way. The suite accreted its signature tools over two decades: Repeater, Intruder and Spider early; Sequencer (token entropy) around 2007; the commercial Scanner; Collaborator in 2015, which brought out-of-band application security testing (OAST) mainstream for blind SSRF, XXE and SQLi; Burp 2.0's rewritten crawler and an embedded Chromium for JavaScript-heavy apps; the Montoya extension API (2022) replacing legacy IBurpExtender; BChecks and Bambdas (2023-24); and in 2025 the Enterprise edition rebranded Burp Suite DAST plus Burp AI (Professional 2025.2+, metered by credits). PortSwigger Research (James Kettle) keeps turning new attack classes — HTTP request smuggling/desync, HTTP/2 desync, web cache poisoning, single-packet race conditions — into Burp features and BApps, so the tool ships offence soon after it is published. It sells in three editions: Community (free; no Scanner, throttled Intruder, temporary projects only), Professional ($499/user/year as of 2026, a $50 rise from 2025, with full-speed Intruder, Scanner, saved projects, Collaborator and all BApps), and DAST (quote-based, for scheduled/CI-CD scanning across teams). The BSCP certification and the free Web Security Academy (250+ labs) are built entirely around it, which is why it is the default skill on nearly every web-pentest, bug-bounty, red-team and AppSec job. It matters to every selected role because it is the one workbench where a request can be sent from any tab to any other — proxy to Repeater to Intruder to Scanner to Collaborator — without a context switch, with hundreds of community BApps filling any gaps. Its limits: it is a desktop, per-seat manual tool (a team with hundreds of apps needs a DAST platform), HTTPS interception depends on trusting Burp's per-host CA (defeated by certificate pinning and, since Android 7, by user-CA distrust), and active Scanner/Intruder can damage targets, so written authorization is mandatory.",
+  "links": {
+    "Homepage": "https://portswigger.net/burp",
+    "Documentation": "https://portswigger.net/burp/documentation",
+    "Web Security Academy": "https://portswigger.net/web-security",
+    "Release notes": "https://portswigger.net/burp/releases"
+  },
+  "show_on": [
+    "portfolio",
+    "vapt"
+  ]
+}

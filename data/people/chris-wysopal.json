@@ -1,0 +1,19 @@
+{
+  "name": "Chris Wysopal",
+  "handle": "Weld Pond",
+  "domain": "Application Security & Vulnerability Research",
+  "era": "1990s-present",
+  "org": "L0pht Heavy Industries; @stake; Symantec; Veracode (co-founder, CTO)",
+  "why_notable": "Member of the Boston hacker collective L0pht under the handle Weld Pond. He ported Hobbit's netcat to Windows NT in 1998 ('Netcat for NT', the nc.exe that spread through Windows administration and penetration-testing toolkits) and in 2004 released Netcat for Windows 1.11 to fix a buffer overflow reported in version 1.1. With the L0pht he testified before the US Senate in 1998 on the insecurity of government and commercial networks, then carried that work into @stake, an early commercial security consultancy, and later co-founded Veracode (2006), a pioneer of binary static analysis for application security, where he served as CTO. He is a co-author of 'The Art of Software Security Testing'.",
+  "links": {
+    "Netcat for NT (mirror)": "https://github.com/diegocr/netcat",
+    "Bugtraq: Netcat for Windows 1.11 fix": "https://seclists.org/bugtraq/2004/Dec/433"
+  },
+  "tools": [
+    "nc"
+  ],
+  "show_on": [
+    "portfolio",
+    "vapt"
+  ]
+}

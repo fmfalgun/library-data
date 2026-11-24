@@ -1,0 +1,21 @@
+{
+  "name": "dnsrecon",
+  "purpose": "All-in-one DNS reconnaissance: standard records, zone transfer (AXFR) tests on every name server, subdomain brute force, SRV and reverse (PTR) sweeps, DNSSEC NSEC zone walking, cache snooping and Certificate Transparency lookups, with JSON/XML/CSV/SQLite output",
+  "author": "Carlos Perez (darkoperator)",
+  "org": "Independent open-source project (author later at TrustedSec); community-maintained on GitHub",
+  "year": "2007",
+  "language": "Python 3 (originally Ruby)",
+  "phase": "Phase 1 — Reconnaissance",
+  "category": "Hacking Tools",
+  "why_notable": "Carlos Perez wrote dnsrecon in early 2007 as a Ruby script to learn the language and DNS itself; the Ruby version (1.6) shipped with BackTrack 4, the same logic became his Metasploit dns_enum auxiliary module in 2009, and in December 2010 he ported it to Python under GPL-2.0, the form every Kali user runs today. Where its contemporaries dnsenum and fierce each run one fixed strategy, dnsrecon grew into a mode-based toolkit that follows the history of DNS recon itself: std record enumeration (RFC 1034/1035), AXFR tried against every NS separately (because admins lock the primary and forget a secondary), wordlist brute force with wildcard detection, SRV discovery that maps Active Directory, SIP and XMPP, reverse sweeps of ranges and SPF netblocks, NSEC zone walking against DNSSEC-signed zones (the exposure that led to NSEC3, RFC 5155), cache snooping of recursive resolvers, and passive crt.sh Certificate Transparency lookups. Results export to JSON, XML, CSV or SQLite, and release 1.6.0 (February 2026) added a REST API for pipeline use; upstream reached 1.6.3 later in 2026, though PyPI long stayed at 0.10.1, so distro or git installs are the safe route. Pentesters and bug bounty hunters use it as the authoritative check after passive collection; DNS engineers run it against their own zones to prove AXFR is closed, NSEC is not walkable and authoritative servers do not recurse; SOC analysts learn its query patterns (NXDOMAIN bursts, AXFR from non-secondaries); ASM teams schedule it for asset inventories; and it is standard material in OSCP, CPTS, eJPT and CEH DNS enumeration.",
+  "links": {
+    "GitHub": "https://github.com/darkoperator/dnsrecon",
+    "Kali Tools": "https://www.kali.org/tools/dnsrecon/",
+    "Original Ruby announcement (2009)": "https://www.darkoperator.com/blog/2009/4/3/dns-recon-tool-written-in-ruby.html",
+    "Study notes": "https://github.com/fmfalgun/library-data/blob/main/notes/tools/dnsrecon.md"
+  },
+  "show_on": [
+    "portfolio",
+    "vapt"
+  ]
+}

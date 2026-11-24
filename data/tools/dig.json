@@ -1,15 +1,24 @@
 {
   "name": "dig",
-  "purpose": "DNS query and diagnostic tool — sends arbitrary DNS queries and displays raw responses",
-  "author": "Kevin Dunlap, Mike Karels, David Riggle (BIND); Paul Vixie (ISC maintainer)",
-  "org": "UC Berkeley (BIND origin); ISC — Internet Systems Consortium",
-  "year": "1984",
+  "purpose": "DNS query tool from BIND: sends any DNS question to any name server over UDP, TCP, TLS or HTTPS and prints the full raw reply (header flags, status, question/answer/authority/additional sections, TTLs, EDNS, timing and which server answered)",
+  "author": "Steve Hotz (original, USC-ISI, 1989); rewritten for BIND 9 by Michael Sawyer (c. 2000)",
+  "org": "USC Information Sciences Institute (original); Internet Systems Consortium (ISC), part of BIND 9",
+  "year": "1989",
   "language": "C",
-  "phase": "Phase 1 — Reconnaissance",
   "category": "Hacking Tools",
-  "why_notable": "dig (Domain Information Groper) shipped as a companion to BIND — the first DNS server, written at UC Berkeley in 1984. DNS itself was invented by Paul Mockapetris (USC/ISI) in 1983 to replace a single hand-maintained text file that couldn't scale. dig outlasted nslookup because it sends exactly what you specify, shows the full response (question, answer, authority, additional sections, flags, timing), and never adds unexpected resolver suffixes. The AXFR zone transfer query is dig's most impactful recon use: a misconfigured nameserver responding to AXFR dumps every record in the zone in one request — the complete internal DNS map. ISC's Paul Vixie took over BIND maintenance in the late 1980s and founded ISC specifically to maintain DNS infrastructure as a public good.",
+  "why_notable": "DNS (RFC 1034/1035, 1987) gave the Internet a distributed name system, but its first query tool, nslookup from Berkeley's BIND, was interactive and hid the protocol. In 1989 Steve Hotz at USC-ISI released dig, the 'domain information groper', a scriptable tool that printed the whole DNS message (dig 1.0 public on 29 March 1989, 2.0 on 1 September 1990). Paul Vixie merged it into BIND 4.9 in the early 1990s, linking it against libresolv and nslookup code, and Michael Sawyer rewrote it for BIND 9 (c. 2000), which added multiple lookups per command line, batch mode (-f) and EDNS. It then gained DNSSEC flags (+dnssec, +cd), +trace (dig walks the delegation from the root itself, bypassing caches), +nsid, ECS (+subnet), YAML output, and in BIND 9.18 (2022) DNS over TLS (+tls) and DNS over HTTPS (+https) along with the transport shown in its output. The 'domain information groper' expansion was dropped from the man page in 2017, the licence moved from ISC to MPL 2.0 with 9.11, and native Windows builds ended after BIND 9.16, leaving WSL, Docker or PowerShell's Resolve-DnsName there; OpenBSD keeps its own fork in base. In 2026 dig ships with BIND 9.20 (dnsutils/bind-utils); 9.18 reached end of life in June 2026 and ISC moved to monthly security releases. Because it comes from the same codebase as the reference server named and shows exactly what a server returns rather than what the OS resolver decides, dig is the default DNS troubleshooting tool. Network engineers and DNS admins use it to check delegation, SOA serials, TTLs, aa/ra/ad flags and TCP fallback. DevOps, SRE and cloud engineers use it to debug cutovers, Kubernetes CoreDNS, GeoDNS and split-horizon private zones. Email admins use it to check MX, SPF, DKIM, DMARC and FCrDNS. Pentesters use it for AXFR zone-transfer tests, TXT/MX infrastructure fingerprinting, wildcard and dangling-CNAME (subdomain takeover) checks and NSEC zone walking. SOC and threat-intel analysts use it for IOC triage, fast-flux and tunnelling signs, and pivoting on shared NS/SOA data. Its gotchas include querying the 127.0.0.53 stub by accident, ignoring /etc/hosts and nsswitch, +short hiding errors, and ANY being minimised by RFC 8482.",
   "links": {
+    "Homepage": "https://www.isc.org/bind/",
+    "Docs": "https://bind9.readthedocs.io/en/latest/manpages.html#dig-dns-lookup-utility",
+    "GitLab": "https://gitlab.isc.org/isc-projects/bind9",
+    "dig 2.0 README (1990)": "https://ftp5.gwdg.de/pub/linux/funet/util/networking/programs/dig/dig-2.0.README",
+    "BIND 9.18 release notes (DoT/DoH in dig)": "https://bind9.readthedocs.io/en/v9.18.0/notes.html",
+    "RFC 1035": "https://www.rfc-editor.org/rfc/rfc1035",
+    "Study notes": "https://github.com/fmfalgun/library-data/blob/main/notes/tools/dig.md",
     "ISC BIND": "https://www.isc.org/bind/"
   },
-  "show_on": ["vapt"]
+  "show_on": [
+    "vapt"
+  ],
+  "phase": "Phase 1 — Reconnaissance"
 }

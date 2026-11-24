@@ -1,0 +1,17 @@
+{
+  "name": "Rory Ward",
+  "handle": null,
+  "domain": "Zero Trust & Enterprise Security Architecture",
+  "era": "2010s",
+  "org": "Google",
+  "why_notable": "Google engineer and lead author, with Betsy Beyer, of 'BeyondCorp: A New Approach to Enterprise Security' (;login:, December 2014). That paper began Google's public account of BeyondCorp, its response to Operation Aurora (2009). BeyondCorp treated every network as untrusted and gated each request to an application on the user's identity and on the state of a managed device, which was tracked in a device inventory and scored by a trust inferer. The paper is the most cited practical origin of device posture in Zero Trust, and its ideas run through NIST SP 800-207.",
+  "links": {
+    "BeyondCorp (2014 paper)": "https://www.usenix.net/system/files/login/articles/login_dec14_02_ward.pdf"
+  },
+  "tools": [
+    "Device Posture"
+  ],
+  "show_on": [
+    "portfolio"
+  ]
+}

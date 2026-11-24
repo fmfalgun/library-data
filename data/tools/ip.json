@@ -1,0 +1,23 @@
+{
+  "name": "ip",
+  "purpose": "Linux command (from the iproute2 package) that shows and changes the kernel network stack through netlink: interfaces, addresses, routes, policy-routing rules, ARP/NDP neighbors, tunnels, VRFs, network namespaces and live kernel network events, replacing ifconfig, route and arp",
+  "author": "Alexey Kuznetsov (original author of iproute2); maintained by Stephen Hemminger and David Ahern",
+  "org": "Linux kernel networking community; iproute2 is hosted on kernel.org and released alongside each kernel version",
+  "year": "1999 (iproute2 for Linux 2.2; version 7.1 released June 2026)",
+  "language": "C",
+  "category": "Networking Tools",
+  "why_notable": "Before iproute2, Linux networking was configured with the net-tools suite (ifconfig, route, arp, netstat), which used ioctls and /proc, could not express policy routing, multiple routing tables, tunnels or namespaces, and has not seen a release since version 2.10 in January 2021. Alexey Kuznetsov, who also wrote the kernel's quality-of-service implementation (hence tc in the same package), built iproute2 on rtnetlink, the netlink interface later described as an IETF Informational RFC (RFC 3549, 2003, with Kuznetsov as co-author). Stephen Hemminger took it over with the 2.6 kernel and still cuts a release for every kernel version (6.19 in February 2026, 7.0 in April 2026, 7.1 on 15 June 2026), with David Ahern maintaining the iproute2-next tree where new features are staged; newer releases work with older kernels, there are no long-term stable branches, and there is no maintenance release. One uniform OBJECT COMMAND syntax (link, address, route, neighbour, rule, netns, monitor, tunnel and more, plus -j JSON output and -br brief tables) covers addresses, routes, VLANs, bridges, veth pairs, GRE/VXLAN tunnels, VRFs, nexthop groups and network namespaces, which is why every container runtime, CNI plugin, NetworkManager, systemd-networkd and cloud-init effectively speaks the same netlink calls and ip is the ground truth when they disagree. Its changes are live and non-persistent, so experts use it to inspect and test (ip route get shows the kernel's real forwarding decision) and use NetworkManager, systemd-networkd or netplan for persistence. Network engineers use it for routes, neighbors, VLANs and tunnels on Linux routers and labs; sysadmins and SREs for triage and container networking; pentesters for post-exploitation recon, pivots, tun/tap devices and MAC changes; analysts for spotting rogue routes, promiscuous interfaces and ARP spoofing (two IPs sharing one MAC in ip neigh); and automation engineers for ip -j output and pyroute2. Equivalents elsewhere are ifconfig/route/netstat/arp/ndp on BSD and macOS, netsh and the PowerShell NetTCPIP cmdlets on Windows, and vendor show commands on network devices; only Linux combines address, link, route, neighbor, namespace and VRF control in one tool.",
+  "links": {
+    "Homepage": "https://wiki.linuxfoundation.org/networking/iproute2",
+    "Source (git)": "https://git.kernel.org/pub/scm/network/iproute2/iproute2.git",
+    "Docs (man page)": "https://man7.org/linux/man-pages/man8/ip.8.html",
+    "Task-centered guide": "https://baturin.org/docs/iproute2/",
+    "RFC 3549 (Linux Netlink)": "https://datatracker.ietf.org/doc/rfc3549/",
+    "Wikipedia": "https://en.wikipedia.org/wiki/Iproute2",
+    "Study notes": "https://github.com/fmfalgun/library-data/blob/main/notes/tools/ip.md"
+  },
+  "show_on": [
+    "portfolio",
+    "vapt"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Steve Hotz",
+  "handle": null,
+  "domain": "DNS & Internet Infrastructure",
+  "era": "1980s-1990s",
+  "org": "USC Information Sciences Institute (USC-ISI)",
+  "why_notable": "Original author of dig, written at USC's Information Sciences Institute and first distributed publicly on 29 March 1989, with version 2.0 following on 1 September 1990. He built it by reworking pieces of the BIND resolver library and nslookup into a non-interactive, scriptable tool that printed the complete DNS message, flags and sections included, instead of only a final answer. Paul Vixie merged it into BIND 4.9, and dig went on to become the standard DNS diagnostic tool on every Unix-like system.",
+  "links": {
+    "dig 2.0 README (1990)": "https://ftp5.gwdg.de/pub/linux/funet/util/networking/programs/dig/dig-2.0.README"
+  },
+  "tools": [
+    "dig"
+  ],
+  "show_on": [
+    "portfolio"
+  ]
+}

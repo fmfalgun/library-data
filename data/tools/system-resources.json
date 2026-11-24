@@ -1,0 +1,23 @@
+{
+  "name": "System Resources",
+  "purpose": "The five hardware resources every program consumes (CPU, RAM, GPU, disk I/O, network I/O), how they differ in latency and scaling, how cores and threads affect each, and how to find which one is the bottleneck",
+  "author": "John von Neumann (stored-program CPU/memory split, 1945); Gene Amdahl (Amdahl's law, 1967); Brendan Gregg (USE method); Jens Axboe (Linux blk-mq, io_uring); Dan Kegel (C10K problem)",
+  "org": "Institute for Advanced Study / EDVAC project; IBM; Sun Microsystems, Netflix, Intel, OpenAI; Linux kernel community (Oracle, Fusion-io, Facebook/Meta); independent",
+  "year": "1945",
+  "language": "Concept (hardware and operating-system architecture); observed with Linux tools such as htop, vmstat, iostat, nvidia-smi, iftop, perf and fio",
+  "category": "Computer Fundamentals",
+  "phase": "Hardware Resources & Performance",
+  "why_notable": "The split between a processor that executes instructions and a memory that holds them goes back to von Neumann's 1945 First Draft of a Report on the EDVAC, and every computer since has added the same three outer layers: a GPU for massively parallel arithmetic, persistent storage, and the network. The resources differ in latency by up to eight orders of magnitude (about 1 ns for L1 cache, 100 ns for RAM, tens of microseconds for NVMe, milliseconds for HDD and LAN, up to hundreds of milliseconds across the Internet), so performance engineering is mostly keeping data high on that ladder and finding the one saturated resource, the idea Brendan Gregg formalised as the USE method (utilisation, saturation, errors). Cores and threads affect each resource differently: CPU-bound work scales with cores only as far as Amdahl's 1967 law allows, RAM gets more contended as threads grow (bandwidth, NUMA, per-thread stacks), GPUs run thousands of simple lockstep threads fed by CPU threads over PCIe, NVMe needs deep queues via per-core blk-mq queues and io_uring (both by Jens Axboe), and network I/O scales through concurrency and event loops (Dan Kegel's C10K problem, 1999) plus RSS multi-queue NICs. For developers it explains why production services are usually I/O-bound and why 32 GB+ RAM matters; for red teams it explains why hashcat needs a GPU, labs need RAM and scans are latency- and IDS-bound; for blue teams it sizes SIEM, PCAP and IDS sensors that must not drop packets at peak; and for security generally each resource is also an attack surface (Spectre, Rowhammer, LSASS dumping, ransomware I/O spikes, DDoS, cryptojacking).",
+  "links": {
+    "USE Method": "https://www.brendangregg.com/usemethod.html",
+    "Latency numbers": "https://gist.github.com/jboner/2841832",
+    "Linux blk-mq": "https://docs.kernel.org/block/blk-mq.html",
+    "Linux network scaling (RSS)": "https://docs.kernel.org/networking/scaling.html",
+    "C10K problem": "http://www.kegel.com/c10k.html",
+    "CUDA programming guide": "https://docs.nvidia.com/cuda/cuda-c-programming-guide/",
+    "Study notes": "https://github.com/fmfalgun/library-data/blob/main/notes/tools/system-resources.md"
+  },
+  "show_on": [
+    "portfolio"
+  ]
+}

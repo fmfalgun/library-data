@@ -1,0 +1,23 @@
+{
+  "name": "nslookup",
+  "purpose": "Command-line DNS query tool: sends a question for A, AAAA, MX, NS, SOA, TXT, SRV or PTR records straight to a chosen name server and prints the raw answer, bypassing the operating system's normal name-resolution path",
+  "author": "Andrew Cherenson (original, 1986); ISC BIND 9 developers (Unix/macOS version); Microsoft (Windows nslookup.exe)",
+  "org": "UC Berkeley (origin, shipped in 4.3-Tahoe BSD); ISC (Internet Systems Consortium) via BIND; Microsoft",
+  "year": "1986",
+  "language": "C",
+  "category": "Networking Tools",
+  "why_notable": "Andrew Cherenson wrote nslookup as a UC Berkeley class project in 1986, three years after Paul Mockapetris defined DNS (RFC 882/883) and a year before RFC 1034/1035. It first shipped in 4.3-Tahoe BSD and became part of BIND, giving admins a way to ask a name server a question and see the raw reply just as DNS was replacing the HOSTS.TXT file. Its BIND 4-era resolver code earned a reputation for wrong results (criticised by Paul Vixie and Dan Bernstein), and when ISC rewrote BIND 9 it marked nslookup deprecated in favour of dig and host, then reversed that in 2004 with BIND 9.3 because too much depended on it. Today the Unix version is a front end to the same dighost.c engine as dig and host (in bind9-dnsutils / bind-utils, current stable branch 9.20), Windows ships a separate Microsoft nslookup.exe that still supports interactive zone-transfer attempts (ls -d), and BusyBox has a minimal clone found in Alpine and Kubernetes pods. Its key property is that it uses its own DNS client: it ignores /etc/hosts, nsswitch, the Windows DNS client cache, LLMNR, mDNS, the NRPT and DoH, so it tests the DNS server rather than what applications see (getent, resolvectl and Resolve-DnsName do that). It cannot do DoT, DoH, DoQ or show DNSSEC validation, unlike dig, kdig or delv. Network engineers and Linux admins use it to tell a DNS fault from a routing or firewall fault and to compare recursive answers with authoritative ones (the 'Non-authoritative answer' line is the AA bit); Windows/AD admins check DC SRV records; SREs check DNS cutovers and TTLs and debug cluster DNS; email admins check MX, SPF, DKIM, DMARC and PTR. Pentesters use it for DNS recon and AD mapping from Windows footholds. SOC and DFIR teams now hunt it as a LOLBin: the 2026 ClickFix campaigns tricked users into running nslookup against attacker DNS servers whose replies carried PowerShell payloads (ModeloRAT), and because nslookup bypasses the Windows DnsQuery API, endpoint DNS logging can miss those queries.",
+  "links": {
+    "Homepage": "https://www.isc.org/bind/",
+    "GitLab": "https://gitlab.isc.org/isc-projects/bind9",
+    "Docs": "https://bind9.readthedocs.io/en/stable/manpages.html",
+    "Windows docs": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/nslookup",
+    "Wikipedia": "https://en.wikipedia.org/wiki/Nslookup",
+    "Resolve-DnsName vs nslookup (Microsoft)": "https://techcommunity.microsoft.com/blog/networkingblog/resolve-dnsname-vs-nslookup-in-windows/4483858",
+    "Study notes": "https://github.com/fmfalgun/library-data/blob/main/notes/tools/nslookup.md"
+  },
+  "show_on": [
+    "portfolio",
+    "vapt"
+  ]
+}

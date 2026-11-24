@@ -2,11 +2,13 @@
   "name": "Christian Martorella",
   "handle": "laramies",
   "domain": "Reconnaissance & OSINT Tools",
-  "era": "~2008–present",
-  "org": "Edge-Security (Spanish security research group)",
-  "why_notable": "Created theHarvester — the first tool to aggregate passive OSINT (emails, subdomains, IPs, hostnames) from multiple search engines and public APIs in a single script. Before theHarvester, this meant querying each source manually. Now at v4 with 40+ sources, it remains the canonical OSINT aggregator. Also created metagoofil for metadata extraction from public documents. His work defined what passive recon tooling looks like.",
+  "era": "2000s-present",
+  "org": "Edge-Security (co-founder); Argentina IRS (AFIP); Verizon Business; Skype / Microsoft Product Security; Ascensis (partner); FIST Conferences (president)",
+  "why_notable": "A security researcher who began his career as a security consultant at Argentina's tax agency (AFIP), then became Practice Leader for Threat and Vulnerability (EMEA) at Verizon Business and later worked on product security at Skype/Microsoft. He co-founded the Edge-Security research group with Vicente Diaz, Xavier Mendez and Carlos del Ojo, which released some of the best-known open-source offensive tools: his theHarvester (OSINT email and subdomain harvesting) and Metagoofil (metadata extraction from public documents), and the group's Wfuzz and the OWASP WebSlayer web fuzzers. Edge-Security presented new versions of Wfuzz, theHarvester and Metagoofil at Black Hat USA Arsenal 2011, and Martorella has spoken at Hack.lu, What The Hack!, OWASP, Source and OSIRA ('Offensive OSINT', 2014). He also wrote the book Learning Python Web Penetration Testing. His GitHub handle laramies is still the home of theHarvester, which is now maintained by community contributors.",
   "links": {
     "GitHub": "https://github.com/laramies",
+    "Edge-Security": "https://edge-security.com",
+    "OWASP profile": "https://wiki.owasp.org/index.php/User:Cmartorella",
     "Twitter/X": "https://twitter.com/laramies"
   },
   "tools": [

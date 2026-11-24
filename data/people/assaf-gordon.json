@@ -1,0 +1,19 @@
+{
+  "name": "Assaf Gordon",
+  "handle": null,
+  "domain": "Unix / Systems Foundations",
+  "era": "2010s-present",
+  "org": "GNU Project",
+  "why_notable": "Revived GNU time after 21 years without a release. Version 1.7 (1996) had been patched separately by every distribution, most famously for a bug that reported peak memory four times too high. His GNU Time 1.8 (November 2017) modernised the code with gnulib, absorbed the downstream patches, relicensed it under GPLv3+, and added -q and coreutils-style exit codes (125/126/127). GNU Time 1.9 (March 2018) fixed CPU-percentage reporting for runs under a second and is the version Linux distributions ship today. He is also the author of GNU datamash and has contributed to GNU coreutils.",
+  "links": {
+    "GNU time 1.8 announcement": "https://lists.gnu.org/r/info-gnu/2017-11/msg00002.html",
+    "GNU time 1.9 announcement": "https://lists.gnu.org/archive/html/bug-time/2018-03/msg00002.html",
+    "GNU datamash": "https://www.gnu.org/software/datamash/"
+  },
+  "tools": [
+    "time"
+  ],
+  "show_on": [
+    "portfolio"
+  ]
+}

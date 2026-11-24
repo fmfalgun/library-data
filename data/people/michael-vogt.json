@@ -1,0 +1,18 @@
+{
+  "name": "Michael Vogt",
+  "handle": "mvo",
+  "domain": "Linux Package Management",
+  "era": "2000s-present",
+  "org": "Debian Project (APT Development Team); Canonical Ltd. (Ubuntu, snapd)",
+  "why_notable": "Michael Vogt is one of the few engineers whose work spans both of Ubuntu's package systems. As a Debian and Ubuntu developer he was a long-time APT developer and the author of Synaptic, the classic graphical APT front end, and worked on Ubuntu's update and software-center tools at Canonical. He then became a core snapd engineer, uploading the early snapd 2.x releases (such as 2.11 and 2.16) to Ubuntu 16.04 in 2016 while snaps were being brought to classic Ubuntu. His career traces the move from shared-library .deb packaging toward bundled, confined snaps.",
+  "links": {
+    "Interview (Raphael Hertzog, 2011)": "https://raphaelhertzog.com/2011/01/21/people-behind-debian-michael-vogt-synaptic-apt-developer/"
+  },
+  "tools": [
+    "apt",
+    "snap"
+  ],
+  "show_on": [
+    "portfolio"
+  ]
+}

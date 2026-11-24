@@ -1,0 +1,18 @@
+{
+  "name": "Filip Waeytens",
+  "handle": "fwaeytens",
+  "domain": "Reconnaissance & OSINT Tools",
+  "era": "2000s–2010s",
+  "org": "Independent security researcher",
+  "why_notable": "Co-wrote dnsenum with tixxDZ in the mid-2000s: a multithreaded Perl script built to gather as much DNS information about a domain as possible and to discover its non-contiguous IP blocks through zone transfers, brute force, class C netrange whois and reverse sweeps. He hosted it on Google Code and then GitHub (fwaeytens/dnsenum); after maintenance passed to Network Silence and the dnsenum2 fork, the tool kept his design and credits and still ships in Kali, Debian and Ubuntu as a staple of DNS footprinting.",
+  "links": {
+    "GitHub (original dnsenum)": "https://github.com/fwaeytens/dnsenum"
+  },
+  "tools": [
+    "dnsenum"
+  ],
+  "show_on": [
+    "portfolio",
+    "vapt"
+  ]
+}

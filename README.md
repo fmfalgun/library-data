@@ -29,6 +29,8 @@ library-tools/
 ├── data/
 │   ├── tools/       one JSON record per tool, plus manifest.json (the file list)
 │   └── people/      one JSON record per person, plus manifest.json
+├── notes/
+│   └── tools/       longer Markdown study notes, linked from tool records
 ├── docs/            RECORD_FORMAT.md, the record fields
 └── ci/              sync-records.py (checks records, updates manifests and the README rule list)
     └── hooks/       pre-commit (blocks secrets, runs the records check)

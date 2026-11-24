@@ -1,0 +1,20 @@
+{
+  "name": "keyctl",
+  "purpose": "Command-line client for the Linux kernel key retention service: stores, searches, reads, shares and expires secrets (passwords, tokens, encryption keys) in kernel-memory keyrings that vanish on reboot and are guarded by per-key permission masks",
+  "author": "David Howells",
+  "org": "Red Hat (kernel key retention service and the keyutils package); part of the Linux kernel ecosystem",
+  "year": "2004",
+  "language": "C",
+  "category": "Unix Tools",
+  "why_notable": "The Linux kernel key retention service, written by David Howells at Red Hat and merged around Linux 2.6.10 (2004), was built so that kernel subsystems such as AFS, NFS ID mapping, Kerberos credential caches, dm-crypt, eCryptfs, fscrypt and IMA/EVM could cache cryptographic keys and tokens in kernel memory instead of in files or in each process, with a serial number, a type, a description, an owner and a permission mask on every key. The keyutils package supplies the keyctl command and libkeyutils on top of the add_key, request_key and keyctl system calls. Each process subscribes to thread, process and session keyrings, and each user has a user keyring (@u) and a user-session keyring (@us); keys of type 'user' hold arbitrary blobs of up to about 32 KB that userspace may add, read, link, unlink, expire and re-permission. Because keys live only in kernel memory they disappear on reboot, which makes the facility attractive for holding a disk-encryption or gocryptfs passphrase after unlock without leaving it on disk, and it is why admins pair 'keyctl pipe' with an encrypted backup file and a restore script, as in this library entry. The permission mask is the part people get wrong: each of possessor, user, group and other gets six bits (view, read, write, search, link, setattr), so 0x3f3f3f3f grants everything to everyone on the box. For sysadmins and DevOps engineers it is the cheap, file-free way to hand secrets to services; for security analysts it is both a safe-storage primitive and a post-exploitation target (keyctl show, /proc/keys, and past kernel bugs such as CVE-2016-0728 in the session keyring code); and it is the Linux counterpart of the macOS Keychain, Windows DPAPI/Credential Manager and the Android/iOS keystores.",
+  "links": {
+    "Docs": "https://docs.kernel.org/security/keys/core.html",
+    "Man page": "https://man7.org/linux/man-pages/man1/keyctl.1.html",
+    "keyrings(7)": "https://man7.org/linux/man-pages/man7/keyrings.7.html",
+    "Source": "https://git.kernel.org/pub/scm/linux/kernel/git/dhowells/keyutils.git",
+    "Study notes": "https://github.com/fmfalgun/library-data/blob/main/notes/tools/keyctl.md"
+  },
+  "show_on": [
+    "portfolio"
+  ]
+}

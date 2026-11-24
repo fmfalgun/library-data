@@ -1,0 +1,19 @@
+{
+  "name": "Dafydd Stuttard",
+  "handle": "PortSwigger",
+  "domain": "Web Application Security",
+  "era": "2003–present",
+  "org": "PortSwigger Ltd (founder and CEO)",
+  "why_notable": "Wrote the first version of Burp in 2003 under the long-standing hacking handle 'PortSwigger' ('one who swigs port'), originally to automate his own manual web-application testing, and founded PortSwigger Ltd (commonly dated 2008) to develop it into the industry-standard Burp Suite. He kept the company bootstrapped for roughly sixteen years before taking a first $112 million investment in 2024, retaining control. He co-authored The Web Application Hacker's Handbook (2007; 2nd ed. 2011) with Marcus Pinto — the canonical text on web testing — and created the core content of PortSwigger's free Web Security Academy, which trains millions and underpins the BSCP certification. Every penetration tester, bug-bounty hunter, red teamer and AppSec engineer who intercepts a request in Burp Proxy, replays it in Repeater or fuzzes it in Intruder is using the workflow he designed.",
+  "links": {
+    "Company": "https://portswigger.net/about",
+    "Web Security Academy credits": "https://portswigger.net/web-security/credits"
+  },
+  "tools": [
+    "Burp Suite"
+  ],
+  "show_on": [
+    "portfolio",
+    "vapt"
+  ]
+}

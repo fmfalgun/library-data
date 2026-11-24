@@ -1,0 +1,25 @@
+{
+  "name": "curl",
+  "purpose": "Command-line tool and C library (libcurl) for transferring data with URLs over about 25 protocols (HTTP/1.1, HTTP/2, HTTP/3, FTP(S), SFTP/SCP, SMTP(S), IMAP(S), POP3(S), LDAP(S), MQTT, TFTP, DICT, Gopher, RTSP, WebSocket, file:// and Unix sockets), with full control of headers, methods, TLS, proxies, cookies and timing",
+  "author": "Daniel Stenberg (curl, 1998, building on Rafael Sagula's HttpGet, 1996), with about 3,600 contributors",
+  "org": "Independent curl project (BDFL-led, no foundation or company owner); hosted at curl.se, previously curl.haxx.se under Stenberg's Haxx AB",
+  "year": "1998 (HttpGet 1996)",
+  "language": "C",
+  "category": "Networking Tools",
+  "why_notable": "In late 1996 Daniel Stenberg wanted an IRC bot on EFnet to fetch currency exchange rates over the web. He took over HttpGet, a small tool released by Brazilian student Rafael Sagula on 11 November 1996 (the same day Wget 1.4.0 shipped), added FTP and renamed it urlget (August 1997). When upload support made that name misleading, he released it as curl 4.0 on 20 March 1998 ('see URL', also read as Client for URLs), keeping the old version numbers. It had about 2,200 lines of code, and SSL came via SSLeay. The 2000 split into libcurl turned a utility into infrastructure: a stable C ABI (libcurl.so.4 since 2006) with an easy API, a multi API and an event-driven multi_socket API, pluggable TLS backends (OpenSSL, wolfSSL, GnuTLS, mbedTLS, Schannel, Apple, rustls), HTTP/2 via nghttp2 (2015) and HTTP/3 via ngtcp2/nghttp3 or quiche. It is bundled in Windows 10 (1803) and later, macOS and nearly every Linux system, embedded in phones, cars, TVs and consoles, wrapped by PHP, pycurl and dozens of other bindings, and estimated at more than ten billion installations by 2023 and about thirty billion by its 30th anniversary in November 2026 (273 command-line options, 308 setopt options). It ships every eight weeks, with only the latest release patched, and 2026 was its hardest security year: 8.18.0 made OpenSSL 3.0 the minimum, the HackerOne bug bounty (2019 to 31 January 2026) was ended because of AI-generated slop reports, 8.20.0 disabled NTLM by default, 8.21.0 fixed a record 18 vulnerabilities, intake paused in July, and 8.23.0 (14 October 2026) published 24 CVEs, including HIGH-severity CVE-2026-92392, an HTTP/2 upload use-after-free found by Anthropic's OSS Scanner, and removed SMB. API developers use it as the lingua franca of docs and 'Copy as cURL' bug reports (--json, -w, --trace-ascii). SREs use it for probes and cutover checks (-f, --retry, --connect-to, cumulative time_* write-out variables). Network engineers use it to see DNS, TCP/QUIC, TLS, ALPN and HTTP in one -v trace. Pentesters use it for exact, unnormalised requests (--path-as-is, --request-target, Host and method tampering, Burp via -x, gopher:// and dict:// SSRF payloads). Blue teams hunt curl|sh droppers and curl.exe LOLBin use and track its CVE stream in SBOMs. Embedded C developers ship libcurl as their HTTP client. Sysadmins script SFTP, SMTP and Unix-socket APIs with it. Maintainers study it as the model of an independent, BDFL-run critical project with a published CVE and deprecation process.",
+  "links": {
+    "Homepage": "https://curl.se/",
+    "GitHub": "https://github.com/curl/curl",
+    "Docs": "https://curl.se/docs/",
+    "Man page": "https://curl.se/docs/manpage.html",
+    "libcurl API": "https://curl.se/libcurl/c/",
+    "Everything curl (book)": "https://everything.curl.dev/",
+    "History": "https://curl.se/docs/history.html",
+    "Security advisories": "https://curl.se/docs/security.html",
+    "Study notes": "https://github.com/fmfalgun/library-data/blob/main/notes/tools/curl.md"
+  },
+  "show_on": [
+    "portfolio",
+    "vapt"
+  ]
+}

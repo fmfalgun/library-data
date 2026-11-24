@@ -1,0 +1,19 @@
+{
+  "name": "Jens Axboe",
+  "handle": "axboe",
+  "domain": "Linux Kernel Storage & I/O",
+  "era": "1990s-present",
+  "org": "Linux kernel block layer maintainer; SUSE; Oracle; Fusion-io; Facebook/Meta",
+  "why_notable": "Danish Linux kernel developer and long-time maintainer of the block layer. He wrote the CFQ I/O scheduler, blktrace, the fio benchmarking tool, the multi-queue block layer blk-mq (which gives NVMe drives roughly one hardware queue per CPU core so storage I/O scales with cores), and io_uring (2019), a shared-ring asynchronous I/O interface that lets a single thread keep deep queues full without a system call per request. His work is why modern Linux can drive millions of IOPS and why 'more threads or async, not more GHz' is the rule for disk I/O.",
+  "links": {
+    "Wikipedia": "https://en.wikipedia.org/wiki/Jens_Axboe",
+    "Efficient IO with io_uring": "https://kernel.dk/io_uring.pdf",
+    "fio": "https://github.com/axboe/fio"
+  },
+  "tools": [
+    "System Resources"
+  ],
+  "show_on": [
+    "portfolio"
+  ]
+}

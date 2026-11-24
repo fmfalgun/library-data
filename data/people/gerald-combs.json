@@ -1,0 +1,19 @@
+{
+  "name": "Gerald Combs",
+  "handle": null,
+  "domain": "Network Protocol Analysis",
+  "era": "1990s-present",
+  "org": "Unicom Communications (ISP, 1998); CACE Technologies (2006); Riverbed Technology (2010); Sysdig (Director of Open Source Projects, 2021); Wireshark Foundation (board)",
+  "why_notable": "A University of Missouri-Kansas City computer science graduate who, while working at a small ISP in late 1997, needed to track down network problems and could not justify commercial analyzers priced around $1,500 that did not even run on Solaris or Linux. He wrote Ethereal and announced version 0.2.0 on the GTK mailing list on 14 July 1998, then led it for nearly three decades: through the 2006 rename to Wireshark (he kept the code copyright but not the Ethereal trademark when he joined CACE Technologies), 1.0 in 2008, the GTK-to-Qt rewrite in 2.0, sponsorship by CACE, Riverbed and Sysdig, and the 2023 creation of the Wireshark Foundation, which secured the project's independence. He still signs the release announcements and gives the SharkFest keynotes, and the project he started now covers more than 3,000 protocols with over 2,400 contributors.",
+  "links": {
+    "Wireshark blog": "https://blog.wireshark.org",
+    "Wireshark": "https://www.wireshark.org"
+  },
+  "tools": [
+    "Wireshark"
+  ],
+  "show_on": [
+    "portfolio",
+    "vapt"
+  ]
+}

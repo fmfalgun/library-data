@@ -1,0 +1,19 @@
+{
+  "name": "Guy Harris",
+  "handle": null,
+  "domain": "Network Protocol Analysis",
+  "era": "1990s-present",
+  "org": "Wireshark core development team; tcpdump/libpcap maintainers (tcpdump.org)",
+  "why_notable": "Joined Ethereal in October 1998, a few months after its release, because he wanted something better than tcpview, and began applying patches and contributing dissectors. He became one of the project's most prolific core developers, working across protocol dissectors, capture-file formats and packet-capture plumbing, and is equally central to tcpdump and libpcap, the capture library and pcap format that Wireshark, Zeek, Suricata and nmap all depend on. Through the mailing lists, Ask Wireshark and the issue tracker he has answered capture-permission, link-layer and file-format questions for decades; in 2018 he expanded the Debian capture-permission documentation (README.Debian), the text users are pointed to by the 'Should non-superusers be able to capture packets?' install prompt.",
+  "links": {
+    "Wireshark history": "https://www.wireshark.org/docs/wsug_html_chunked/ChIntroHistory.html",
+    "tcpdump/libpcap": "https://www.tcpdump.org"
+  },
+  "tools": [
+    "Wireshark"
+  ],
+  "show_on": [
+    "portfolio",
+    "vapt"
+  ]
+}

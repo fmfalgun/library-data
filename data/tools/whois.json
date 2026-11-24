@@ -1,15 +1,26 @@
 {
   "name": "whois",
-  "purpose": "Domain and IP registration data lookup",
-  "author": "Ken Harrenstien & Vic White (RFC 812); Marco d'Itri (modern Linux CLI)",
-  "org": "SRI-NIC (origin); Marco d'Itri (Linux maintainer)",
-  "year": "1982",
+  "purpose": "Query the registration databases of domain registries, registrars and Regional Internet Registries over the WHOIS protocol (RFC 3912, TCP port 43) to find who holds a domain, IP block or ASN, when it was registered, its registrar, status and name servers, and where to send abuse reports",
+  "author": "Ken Harrenstien and Vic White (NICNAME/WHOIS protocol, RFC 812, 1982); Marco d'Itri (the standard Linux client, written from scratch in 1999)",
+  "org": "SRI International Network Information Center (protocol); the Linux client is maintained independently by Marco d'Itri and packaged via Debian",
+  "year": "1982 (protocol, RFC 812); 1999 (Marco d'Itri's Linux client)",
   "language": "C",
-  "phase": "Phase 1 — Reconnaissance",
   "category": "Hacking Tools",
-  "why_notable": "whois was born on ARPANET in 1982 as a hand-maintained text file of every machine on the early internet, run by Elizabeth 'Jake' Feinler at SRI-NIC. The RFC 812 protocol — connect to TCP port 43, send a query, get text back — has barely changed in over 40 years. Today the Linux CLI (maintained by Marco d'Itri) auto-routes queries to the correct RIR or registrar. GDPR (2018) largely redacted registrant personal data, so modern value lies in registrar name, creation/expiry dates, nameservers, and status flags. It's the first tool in any recon chain: it tells you who controls DNS before you send a single packet to the target.",
+  "why_notable": "WHOIS began on the ARPANET as NICNAME/WHOIS, described in RFC 812 (1982) by Ken Harrenstien and Vic White at the SRI Network Information Center and modelled on Harrenstien's NAME/FINGER (RFC 742, 1977): open TCP port 43, send one line ending in CRLF, read free-form text until the server closes. As the NIC split into InterNIC, registrars and the Regional Internet Registries (RIPE NCC, APNIC, ARIN, LACNIC, AFRINIC) the data became distributed, so clients needed referral logic; RFC 954 (1985) revised it, RPSL (RFC 2622) gave the RIR and IRR databases structured objects, and RFC 3912 (2004) is the last specification, covering only the transport. On Linux the command is Marco d'Itri's 'intelligent' client (1999, GPL-2.0, version 5.6.6 in 2026), which picks the right server for domains, IPs, ASNs and handles from a built-in table and passes RIPE-style flags; macOS and the BSDs ship the older BSD client and Windows has Sysinternals whois. The unstructured output, missing authentication and GDPR-driven redaction (2018) led the IETF to RDAP (RFCs 7480-7484 in 2015, consolidated as 9082/9083/9224), which uses HTTPS, JSON and IANA bootstrap files; ICANN required RDAP from August 2019 and on 28 January 2025 ended the obligation for gTLD registries and registrars to run port-43 WHOIS (except .com, .name and .post), after which many shut it down and RDAP traffic overtook WHOIS by June 2025. Port 43 still lives on at most ccTLDs, the RIRs (ARIN decided in October 2026 not to retire it yet), IRRs such as RADB and services like Team Cymru's IP-to-ASN lookup. Network engineers use it to check IP and ASN ownership and build IRR prefix filters; pentesters and red teamers for passive recon of netblocks, maintainers and sibling domains; SOC and threat-intel analysts for domain age, registrar and hosting signals; DNS administrators for expiry, EPP locks and delegation; sysadmins for abuse contacts; fraud investigators for registration timelines; and Internet-governance researchers as the defining case of privacy versus accountability in Internet registration data.",
   "links": {
+    "GitHub": "https://github.com/rfc1036/whois",
+    "Homepage": "https://www.linux.it/~md/software/",
+    "Docs": "https://man.archlinux.org/man/whois.1.en",
+    "RFC 3912 (WHOIS)": "https://www.rfc-editor.org/rfc/rfc3912",
+    "RFC 812 (NICNAME/WHOIS)": "https://www.rfc-editor.org/rfc/rfc812",
+    "RDAP (RFC 9082)": "https://www.rfc-editor.org/rfc/rfc9082",
+    "ICANN Lookup (RDAP)": "https://lookup.icann.org/",
+    "Sysinternals Whois (Windows)": "https://learn.microsoft.com/en-us/sysinternals/downloads/whois",
+    "Study notes": "https://github.com/fmfalgun/library-data/blob/main/notes/tools/whois.md",
     "RFC 812": "https://www.rfc-editor.org/rfc/rfc812"
   },
-  "show_on": ["vapt"]
+  "show_on": [
+    "vapt"
+  ],
+  "phase": "Phase 1 — Reconnaissance"
 }

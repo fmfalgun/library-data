@@ -1,0 +1,24 @@
+{
+  "name": "Wireshark",
+  "purpose": "Network protocol analyzer: captures live traffic (or opens capture files) and decodes every packet field by field across 3,000+ protocols, with a display-filter language, stream following, statistics, decryption and file carving; ships with the tshark CLI, the dumpcap capture helper and editcap/mergecap/capinfos",
+  "author": "Gerald Combs (original author and lead developer), with Gilbert Ramirez, Guy Harris and 2,400+ contributors",
+  "org": "Wireshark Foundation (since 2023); earlier sponsored by CACE Technologies (2006), Riverbed (2010) and Sysdig (2021)",
+  "year": "1998",
+  "language": "C (core, dissectors, dumpcap), C++ with Qt (GUI), Lua (plugins and dissectors)",
+  "category": "Networking Tools",
+  "why_notable": "Gerald Combs, working at a small Missouri ISP in late 1997, needed to troubleshoot its network, but commercial analyzers cost about $1,500 and did not run on Solaris or Linux, so he wrote his own and announced Ethereal 0.2.0 on the GTK mailing list on 14 July 1998; Gilbert Ramirez and Guy Harris (looking for something better than tcpview) joined within months and the dissector model, a tree of protocol parsers feeding one display-filter engine, drew contributions from everyone with a protocol to debug. When Combs moved to CACE Technologies with Loris Degioanni (creator of WinPcap) in May 2006 he kept the code but not the Ethereal trademark, so the project became Wireshark; 1.0 shipped in 2008, the GUI moved from GTK to Qt in 2.0 (2015), CACE was bought by Riverbed (2010), Sysdig became lead sponsor (2021) and in 2023 created the independent Wireshark Foundation, which now also runs SharkFest and the Wireshark Certified Analyst exam. It stands on libpcap/BPF (McCanne and Jacobson, 1992-93) on Unix and Npcap on Windows, saves pcap/pcapng, and separates the small privileged dumpcap capture helper from the large unprivileged dissector engine; tshark gives the same engine to scripts, servers and pipelines. Recent releases added scatter-plot Plots, NTS-NTP decryption, X.509 export and macOS process metadata (4.6, October 2025), per-packet PID and process-name columns (5.0 release candidate, October 2026), and the sister tool Stratoshark applies the same engine to Falco system-call captures; a wave of AI-assisted fuzzing reports in 2026 also made dissector CVE fixes routine, so it should be kept patched and hostile captures opened in a VM. It is the ground truth for network engineers chasing retransmissions, MTU black holes and DHCP/DNS faults; SOC analysts triaging PCAPs for DNS tunnelling, JA4 fingerprints and beacons; pentesters proving cleartext credentials, NTLM hashes and spoofing; DFIR teams carving files and building timelines; protocol developers writing Lua dissectors; OT/IoT engineers decoding Modbus, DNP3, MQTT and BLE; VoIP engineers analysing SIP ladders and RTP jitter; SREs debugging overlay, mesh and TLS resets; and VPN testers verifying split tunnelling, kill switches, DNS leaks, MTU clamping and post-quantum (ML-KEM) key exchange on the wire.",
+  "links": {
+    "Homepage": "https://www.wireshark.org",
+    "GitLab (primary)": "https://gitlab.com/wireshark/wireshark",
+    "GitHub mirror": "https://github.com/wireshark/wireshark",
+    "Docs": "https://www.wireshark.org/docs/",
+    "tshark man page": "https://www.wireshark.org/docs/man-pages/tshark.html",
+    "Display filter reference": "https://www.wireshark.org/docs/dfref/",
+    "Wireshark Foundation": "https://wiresharkfoundation.org",
+    "Study notes": "https://github.com/fmfalgun/library-data/blob/main/notes/tools/wireshark.md"
+  },
+  "show_on": [
+    "portfolio",
+    "vapt"
+  ]
+}

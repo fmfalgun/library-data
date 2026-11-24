@@ -1,0 +1,19 @@
+{
+  "name": "Jason A. Donenfeld",
+  "handle": "zx2c4",
+  "domain": "Cryptography, VPNs & Linux Kernel Security",
+  "era": "2000s-present",
+  "org": "Edge Security (founder); WireGuard LLC; Linux kernel (WireGuard and random.c maintainer); formerly Gentoo developer; cgit maintainer",
+  "why_notable": "Security researcher and kernel developer who created WireGuard, the minimal VPN tunnel he began around 2015 for stealthy pentest pivoting, published at NDSS 2017 and merged into Linux 5.6 in March 2020 after years of work, including his Zinc crypto library proposal that reshaped the kernel's internal crypto API. He also wrote the WireGuard ports for Windows (WireGuardNT and Wintun), macOS/iOS, Android and, with Matt Dunwoodie, OpenBSD; created the Unix password manager pass (password-store); maintains cgit; and since 2022 has maintained and rewritten the Linux random number generator (random.c), moving it to BLAKE2s. He holds the WireGuard trademark and is known for formally verified, deliberately non-agile protocol design.",
+  "links": {
+    "Website": "https://www.zx2c4.com",
+    "WireGuard": "https://www.wireguard.com",
+    "Git": "https://git.zx2c4.com/"
+  },
+  "tools": [
+    "WireGuard"
+  ],
+  "show_on": [
+    "portfolio"
+  ]
+}

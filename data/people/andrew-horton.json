@@ -1,0 +1,19 @@
+{
+  "name": "Andrew Horton",
+  "handle": "urbanadventurer",
+  "domain": "Web Reconnaissance & Fingerprinting",
+  "era": "2000s–present",
+  "org": "Security-Assessment.com; MorningStar Security (New Zealand)",
+  "why_notable": "New Zealand security researcher who created WhatWeb and still maintains it. He released version 0.3 at Kiwicon III in Wellington on 2 November 2009, as part of a talk on scanning all of New Zealand's web space. At the same presentation he published bing-ip2hosts, gggooglescan and basedomainname for finding targets, and he also released geoipgen, which used a GeoIP database in reverse to turn a country into a list of IP ranges. WhatWeb's plugin architecture, with passive and aggressive matches, aggression levels and logging formats built for large datasets, made it a standard web-fingerprinting tool in Kali and in pentest curricula. He revived the project in 2025-2026 with the 0.6.x releases.",
+  "links": {
+    "GitHub": "https://github.com/urbanadventurer",
+    "Website": "https://morningstarsecurity.com/"
+  },
+  "tools": [
+    "whatweb"
+  ],
+  "show_on": [
+    "portfolio",
+    "vapt"
+  ]
+}

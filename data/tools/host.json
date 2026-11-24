@@ -1,0 +1,22 @@
+{
+  "name": "host",
+  "purpose": "Simple DNS lookup utility from BIND 9: turns names into IP addresses and back, fetches any record type (MX, NS, SOA, TXT, CNAME, PTR), checks SOA serial consistency across a zone's name servers and attempts zone transfers, printing each answer as one readable sentence",
+  "author": "Internet Systems Consortium (BIND 9 rewrite, 2000); the original BSD/BIND 4 host came from Rutgers University (attributed to Charles Hedrick) and was greatly extended by Eric Wassenaar at Nikhef in the 1990s",
+  "org": "Internet Systems Consortium (ISC), with BIND 9 engineering by Nominum; maintained in the BIND 9 tree on ISC GitLab",
+  "year": "2000 (BIND 9 rewrite; original BSD/BIND 4 host from the mid-1980s)",
+  "language": "C",
+  "category": "Networking Tools",
+  "why_notable": "DNS replaced the single HOSTS.TXT file at SRI-NIC (RFC 882/883 in 1983, RFC 1034/1035 in 1987, by Paul Mockapetris), and BIND, written by UC Berkeley graduate students under a DARPA grant, became the reference Unix implementation. host began in that era as a small Rutgers program shipped with BSD and BIND 4, whose man page already showed zone downloads with host -l -v -t any rutgers.edu; in the 1990s Eric Wassenaar at Nikhef turned it into a zone-checking tool with recursive listings and name-validity checks. With BIND 9 in 2000, ISC rewrote host, dig and nslookup on one shared engine (dighost.c), deprecating nslookup and pointing users to host and dig (a decision reversed with BIND 9.3 in 2004); host has since gained IPv6 (AAAA, ip6.arpa), IDN, TCP/UDP control and RFC 8482 minimal-ANY behaviour, and lives on in BIND 9.20 (the 2026 ESV, supported to 2028). Its niche is dig-grade correctness with one-line output: it speaks DNS directly to the servers in /etc/resolv.conf or to any server you name, ignoring /etc/hosts and nsswitch, which is exactly why comparing it with getent explains many 'DNS is broken' tickets. Network engineers use it for forward/reverse checks and split-horizon comparisons; Linux admins for resolver, search-domain and PTR consistency; DNS administrators for host -C serial drift, authoritative answers with -r and locking down AXFR and version.bind; SRE teams for scripted health and propagation checks across resolvers; email admins for MX, SPF, DKIM, DMARC and forward-confirmed reverse DNS; SOC analysts for IOC enrichment and fast-flux spotting; and pentesters for DNS recon, PTR sweeps, CHAOS version.bind banner grabs, cache snooping and host -l zone-transfer tests against every name server. It ships in bind9-host (Debian/Ubuntu), bind-utils (RHEL/Fedora), bind (Arch), bind-tools (Alpine) and macOS; Windows uses nslookup and Resolve-DnsName instead, and FreeBSD's base host is an ldns clone.",
+  "links": {
+    "Homepage": "https://www.isc.org/bind/",
+    "GitHub": "https://github.com/isc-projects/bind9",
+    "Docs": "https://man.archlinux.org/man/host.1",
+    "BIND 9 ARM": "https://bind9.readthedocs.io/en/latest/",
+    "RFC 1035 (DNS)": "https://www.rfc-editor.org/rfc/rfc1035",
+    "Study notes": "https://github.com/fmfalgun/library-data/blob/main/notes/tools/host.md"
+  },
+  "show_on": [
+    "portfolio",
+    "vapt"
+  ]
+}

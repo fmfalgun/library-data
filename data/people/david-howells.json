@@ -1,0 +1,18 @@
+{
+  "name": "David Howells",
+  "handle": null,
+  "domain": "Linux Kernel Security & Filesystems",
+  "era": "2000s-present",
+  "org": "Red Hat; Linux kernel contributor and maintainer (keys, AFS, fscache, new mount API)",
+  "why_notable": "Red Hat kernel developer who wrote the Linux kernel key retention service (key management for cryptographic keys and authentication tokens, merged around Linux 2.6.10) and its userspace package keyutils, which provides keyctl and libkeyutils. His kernel documentation for the service (Documentation/security/keys) is the reference for keyring scoping, key types and permission masks. He is also known for the AFS client, the fscache caching layer and the new mount API, so much of Linux's credential and filesystem plumbing traces back to his patches.",
+  "links": {
+    "Kernel key docs": "https://docs.kernel.org/security/keys/core.html",
+    "keyutils source": "https://git.kernel.org/pub/scm/linux/kernel/git/dhowells/keyutils.git"
+  },
+  "tools": [
+    "keyctl"
+  ],
+  "show_on": [
+    "portfolio"
+  ]
+}

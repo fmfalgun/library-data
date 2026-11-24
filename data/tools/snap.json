@@ -1,0 +1,22 @@
+{
+  "name": "snap",
+  "purpose": "Canonical's cross-distribution app packaging system: the snap CLI and snapd daemon install self-contained, squashfs-mounted, AppArmor/seccomp-confined packages from the Snap Store, with channels, automatic updates and atomic rollback",
+  "author": "Canonical's snappy/snapd team (technical lead Gustavo Niemeyer, with Michael Vogt, Zygmunt Krynicki and others); announced by Mark Shuttleworth",
+  "org": "Canonical Ltd.",
+  "year": "2014",
+  "language": "Go (snapd, snap CLI); Python (snapcraft build tool)",
+  "category": "Unix Tools",
+  "why_notable": "Snaps grew out of Canonical's Click packages for Ubuntu Touch: in 2014 the team began with read-only tarballs managed by a Python 'snappy' script for a 'headless phone' IoT image, Mark Shuttleworth announced Ubuntu Core with snappy transactional updates on 9 December 2014, and the system was redesigned and rewritten in Go as snapd 2.0, shipped in Ubuntu 16.04 LTS (April 2016) and ported to other distributions that June. The idea answers a real gap in the APT model: an LTS distribution freezes library versions, so a 2024 release cannot easily run a 2026 browser or kubectl. A snap bundles its dependencies on top of a shared base (core22, core24), is stored as a squashfs image loop-mounted at /snap/<name>/<revision>, runs strictly confined by AppArmor, seccomp and a mount namespace (or classic, unconfined, after manual store review), talks to the root snapd daemon over a REST socket, refreshes automatically several times a day, keeps previous revisions for snap revert, and is published through track/risk/branch channels (e.g. 1.34/stable). Ubuntu made Firefox and Chromium snaps by default and the App Center is itself a snap; Ubuntu Core for IoT is built entirely from kernel, gadget, base and app snaps with automatic OTA rollback; Ubuntu 26.04 ships snapd 2.74. It is also controversial: the Snap Store backend is proprietary and Canonical-run, Linux Mint blocks snapd by default, most other distributions chose Flatpak for desktop apps, and the store has suffered fake crypto-wallet snaps since 2024 (one victim lost nine bitcoins) and, in 2026, takeovers of old publisher accounts through expired domains. For sysadmins and SREs it means managing two package systems and controlling refresh windows and holds; DevOps engineers use it for kubectl, LXD and MicroK8s; packagers write snapcraft.yaml and promote builds through channels; embedded engineers build Ubuntu Core appliances with brand stores and validation sets; security engineers weigh confinement against unaudited and classic snaps; and pentesters know snapd's root REST API as a privilege-escalation surface, from Dirty Sock (CVE-2019-7304, snapd 2.28-2.37) to later snap-confine bugs, plus sudo snap install of crafted devmode snaps.",
+  "links": {
+    "Homepage": "https://snapcraft.io",
+    "GitHub": "https://github.com/canonical/snapd",
+    "Docs": "https://snapcraft.io/docs",
+    "Forum": "https://forum.snapcraft.io",
+    "Ubuntu Core": "https://ubuntu.com/core",
+    "Study notes": "https://github.com/fmfalgun/library-data/blob/main/notes/tools/apt-snap.md"
+  },
+  "show_on": [
+    "portfolio",
+    "vapt"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "Carlos Perez",
+  "handle": "darkoperator",
+  "domain": "Reconnaissance & OSINT Tools",
+  "era": "2000s–present",
+  "org": "TrustedSec (Principal Consultant, Team Lead for Research); Metasploit and BackTrack contributor",
+  "why_notable": "Wrote dnsrecon, first in Ruby in early 2007 to learn the language and DNS, shipped with BackTrack 4, then ported to Python in 2010; it is now one of the standard DNS enumeration tools in Kali. He carried the same techniques into Metasploit as the dns_enum auxiliary module (2009) and wrote many Meterpreter post-exploitation scripts (netenum, memdump and others), plus tools such as MDNSRecon for multicast DNS. Better known still for his Windows PowerShell security work and his blog darkoperator.com ('Shell Is Only The Beginning'), he has spoken on DNS reconnaissance at conferences such as DerbyCon and later led research at TrustedSec.",
+  "links": {
+    "Blog": "https://www.darkoperator.com",
+    "GitHub": "https://github.com/darkoperator"
+  },
+  "tools": [
+    "dnsrecon"
+  ],
+  "show_on": [
+    "portfolio",
+    "vapt"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "name": "dnsenum",
+  "purpose": "Multithreaded Perl DNS enumerator that runs one fixed pipeline (A/NS/MX, zone transfer, search scraping, recursive brute force, class C netrange whois and reverse sweeps) to discover every IP block a domain owns, including non-contiguous ones",
+  "author": "Filip Waeytens and tixxDZ (original); SparrowOchon (dnsenum2 fork, current)",
+  "org": "Independent open-source project (Google Code, then GitHub); maintained by Network Silence / dnsenum2",
+  "year": "2006 (approx.; exact first release unconfirmed)",
+  "language": "Perl (ithreads, Net::DNS)",
+  "phase": "Phase 1 — Reconnaissance",
+  "category": "Hacking Tools",
+  "why_notable": "Filip Waeytens and tixxDZ wrote dnsenum in the mid-2000s as a multithreaded Perl script whose stated goal was to gather as much information as possible about a domain and discover its non-contiguous IP blocks, the same idea RSnake's fierce introduced in 2007. Instead of offering modes, one run executes a fixed pipeline: A record, threaded NS and MX lookups, AXFR against every name server (originally with BIND version grabbing, removed in 1.2.4), Google scraping with the query -www site:domain, wordlist brute force with optional recursion into found subdomains, expansion of each discovered IP to its class C netrange plus whois, reverse lookups across those ranges, and a final domain_ips.txt list of blocks, printed in BIND zone-file columns and optionally saved as XML. It moved from Google Code (Fedora packaged 1.2 in 2010) to GitHub, passed to the maintainer Network Silence (2019), and today ships in Kali, Debian and Ubuntu as the dnsenum2 fork (version 1.3.x). Parts of its design are now dated: Google blocks the scraping, so practitioners pass -p 0 -s 0, and class C expansion around cloud IPs walks into other tenants' space, so scope must be checked. It remains the one-command way to map a domain's IP blocks: pentesters get scope evidence and grow a site-specific wordlist with -u a, DNS engineers use --private to catch RFC1918 records leaked into public zones, SOC analysts recognise its 256-query PTR sweeps per /24, and CTF and OSCP/CPTS candidates use dnsenum --dnsserver <box> --enum -p 0 -s 0 -f wordlist against lab name servers.",
+  "links": {
+    "GitHub (dnsenum2, maintained)": "https://github.com/SparrowOchon/dnsenum2",
+    "GitHub (original)": "https://github.com/fwaeytens/dnsenum",
+    "Kali Tools": "https://www.kali.org/tools/dnsenum/",
+    "Man page": "https://www.mankier.com/1/dnsenum",
+    "Study notes": "https://github.com/fmfalgun/library-data/blob/main/notes/tools/dnsenum.md"
+  },
+  "show_on": [
+    "portfolio",
+    "vapt"
+  ]
+}

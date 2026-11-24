@@ -2,13 +2,14 @@
   "name": "Jeff Foley",
   "handle": "caffix",
   "domain": "Pentest Tools & Bug Bounty Research",
-  "era": "2017–present",
-  "org": "OWASP (lead of Amass project); SpiderSilk",
-  "why_notable": "Created OWASP Amass — the most comprehensive open-source attack surface mapping tool available. His core insight was treating subdomain enumeration as a graph problem (nodes: FQDNs, IPs, ASNs; edges: relationships) rather than a flat list problem. In v5, introduced the Open Asset Model (OAM), an open standard for representing internet asset relationships, and split Amass into an engine and client architecture that persists asset graphs across runs. Amass is an official OWASP project and the canonical tool for deep, structured attack surface discovery.",
+  "era": "2010s–present",
+  "org": "OWASP Foundation (Amass project leader); formerly National Grid (US Manager, Penetration Testing & Red Teaming; Global Manager of Vulnerability Engineering), Northrop Grumman (Principal Investigator, offensive cyber warfare R&D); ClaritySec (co-founder); SUNY Polytechnic Institute (adjunct professor, penetration testing)",
+  "why_notable": "Founded OWASP Amass in 2017 as a command-line utility to automate the reconnaissance he did when showing organisations what they look like on the internet, drawing on a defence-industry background where attack surface mapping was far ahead of mainstream practice. First shared with peers, it was released as open source, presented as an OWASP project from 2018, and grew into an OWASP Flagship project that is among the most widely used external recon and attack surface mapping tools in pentesting, bug bounty and ASM. He went beyond a single tool: he announced the Open Asset Model at DEF CON 30 (2022) as a community standard for describing internet-facing assets and their relationships, and led the asset-db storage layer (v4, 2023) and the separate collection engine with a REST API (v5, 2025). He also teaches penetration testing and speaks widely on attack surface management.",
   "links": {
     "GitHub": "https://github.com/caffix",
-    "Twitter/X": "https://twitter.com/jeff_foley",
-    "OWASP Amass": "https://github.com/owasp-amass/amass"
+    "OWASP Amass": "https://owasp.org/www-project-amass/",
+    "LinkedIn": "https://www.linkedin.com/in/caffix",
+    "Twitter/X": "https://twitter.com/jeff_foley"
   },
   "tools": [
     "amass"

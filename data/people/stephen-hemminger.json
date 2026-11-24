@@ -1,0 +1,18 @@
+{
+  "name": "Stephen Hemminger",
+  "handle": null,
+  "domain": "Linux Kernel Networking & iproute2 Maintenance",
+  "era": "2000s-present",
+  "org": "Open Source Development Labs (per 2004-2005 iproute2 ChangeLog entries); later affiliations not verified here",
+  "why_notable": "Maintainer of iproute2 since the 2.6 kernel era (the CREDITS file says he took over starting with 2.6) and the person who announces each release on the netdev list, one per kernel version: 6.19 in February 2026, 7.0 in April 2026 and 7.1 on 15 June 2026. His ChangeLog entries from 2004-2005 show him reworking ip batch mode and netlink socket reuse and importing distribution patches, and he is still the main committer on the project. Under his stewardship iproute2 became the default Linux network toolkit that replaced net-tools, with a policy of always running the latest version because it stays compatible with older kernels.",
+  "links": {
+    "iproute2 source (kernel.org)": "https://git.kernel.org/pub/scm/network/iproute2/iproute2.git",
+    "iproute2 7.1 release announcement (LWN)": "https://lwn.net/Articles/1078188/"
+  },
+  "tools": [
+    "ip"
+  ],
+  "show_on": [
+    "portfolio"
+  ]
+}

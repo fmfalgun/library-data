@@ -1,0 +1,22 @@
+{
+  "name": "resolvectl",
+  "purpose": "Linux command-line client for systemd-resolved: shows which DNS servers and routing domains each network interface uses, resolves names, addresses, records and services the way applications see them, changes per-interface DNS at runtime, and flushes, inspects and monitors the local DNS cache",
+  "author": "Tom Gundersen (original systemd-resolved, 2014) and Lennart Poettering, with the systemd project contributors",
+  "org": "systemd project (freedesktop.org); developed largely at Red Hat, now community-maintained on GitHub (systemd/systemd)",
+  "year": "2018 (systemd 239; systemd-resolved since 2014)",
+  "language": "C",
+  "category": "Networking Tools",
+  "why_notable": "For three decades Unix resolved names through the BIND stub resolver in libc and one global /etc/resolv.conf, a design for a desktop with one network that broke once laptops juggled Wi-Fi, Ethernet and VPNs: dhclient, NetworkManager and VPN scripts overwrote the same file, there was no per-interface DNS, no split DNS, no cache and no local DNSSEC, and stopgaps like Debian's resolvconf, openresolv, dnsmasq and nscd were bolted on. systemd-resolved (copyright 2014 Tom Gundersen; announced by Lennart Poettering in systemd 216 on 19 August 2014 as a pretty complete caching DNS and LLMNR stub resolver) replaced that model with per-link DNS servers, routing domains such as ~corp.example and ~. (the root, meaning send all queries over this link, which is how VPNs prevent DNS leaks), a shared cache, a 127.0.0.53 stub listener for legacy apps, the nss-resolve module, mDNS, DNSSEC validation and DNS-over-TLS, configured over D-Bus (and now Varlink) by NetworkManager, systemd-networkd and VPN clients. Its client grew from systemd-resolve-host (216) and systemd-resolve (improved in 229, 2016) into resolvectl in systemd 239 (2018), which also answers as resolvconf for old VPN scripts, and later gained monitor (252), show-cache (254) and show-server-state (255). Ubuntu and Fedora (33, 2020) made it the default, while Debian servers, Alpine and many container images still use a plain resolv.conf. The same idea exists everywhere else: Windows' DNS Client service with the NRPT for split DNS, macOS mDNSResponder with scoped resolvers and /etc/resolver/, and Android's netd DnsResolver with per-network DNS and Private DNS (DoT). For network engineers it answers 'which server did this machine really ask, over which link?', explains why dig (which bypasses split DNS) and applications disagree, verifies VPN split and full tunnels, and fixes stale caches; for cybersecurity experts it exposes LLMNR/mDNS poisoning surface (Responder), tampered resolvers from malware or rogue DHCP, whether DNSSEC and DoT are really active, and live query streams for spotting beaconing and C2 domains.",
+  "links": {
+    "Docs": "https://www.freedesktop.org/software/systemd/man/latest/resolvectl.html",
+    "systemd-resolved": "https://www.freedesktop.org/software/systemd/man/latest/systemd-resolved.html",
+    "GitHub": "https://github.com/systemd/systemd",
+    "systemd 216 announcement": "https://lists.freedesktop.org/archives/systemd-devel/2014-August/022295.html",
+    "Library guide": "https://fmfalgun.github.io/library/?page=resolvectl-guide",
+    "Study notes": "https://github.com/fmfalgun/library-data/blob/main/notes/tools/resolvectl.md"
+  },
+  "show_on": [
+    "portfolio",
+    "vapt"
+  ]
+}

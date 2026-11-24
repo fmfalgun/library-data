@@ -1,0 +1,19 @@
+{
+  "name": "David C. Plummer",
+  "handle": null,
+  "domain": "Networking & Host Discovery",
+  "era": "1980s",
+  "org": "MIT (DCP@MIT-MC); Symbolics, Inc.",
+  "why_notable": "Author of RFC 826 (November 1982), 'An Ethernet Address Resolution Protocol', now Internet Standard STD 37. Written as the DEC/Intel/Xerox 10 Mbit Ethernet spread, it solved a basic gap: protocol addresses (32-bit DoD Internet, 16-bit CHAOS, 8-bit Xerox PUP) had no relation to 48-bit Ethernet hardware addresses. His answer, a broadcast request and a direct reply cached by both sides, was deliberately protocol-generic and is still how every IPv4 host on a LAN finds its neighbours over 40 years later. The same design has no authentication, which is why ARP spoofing works and why tools like arp-scan can find every host on a segment. Later updated by RFC 5227 (conflict detection) and replaced in IPv6 by Neighbor Discovery.",
+  "links": {
+    "RFC 826": "https://www.rfc-editor.org/rfc/rfc826",
+    "IETF Datatracker": "https://datatracker.ietf.org/doc/rfc826"
+  },
+  "tools": [
+    "arp-scan"
+  ],
+  "show_on": [
+    "portfolio",
+    "vapt"
+  ]
+}

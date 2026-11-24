@@ -1,0 +1,18 @@
+{
+  "name": "Gene Amdahl",
+  "handle": null,
+  "domain": "Computer Architecture & Parallel Computing",
+  "era": "1950s-2015",
+  "org": "IBM; Amdahl Corporation; Trilogy Systems",
+  "why_notable": "American computer architect who was a chief architect of the IBM System/360 mainframe family and later founded Amdahl Corporation to build plug-compatible mainframes. His 1967 AFIPS paper on the validity of the single-processor approach gave rise to Amdahl's law: the speedup from adding processors is limited by the fraction of work that must run serially, so a job that is 10% serial can never run more than 10 times faster however many cores are added. It is the standard explanation of why more cores do not automatically mean faster software, and it is still the first check when deciding whether a workload will benefit from more cores or threads.",
+  "links": {
+    "Wikipedia": "https://en.wikipedia.org/wiki/Gene_Amdahl",
+    "Amdahl's law": "https://en.wikipedia.org/wiki/Amdahl%27s_law"
+  },
+  "tools": [
+    "System Resources"
+  ],
+  "show_on": [
+    "portfolio"
+  ]
+}

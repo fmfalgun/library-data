@@ -1,0 +1,17 @@
+{
+  "name": "David Keppel",
+  "handle": null,
+  "domain": "Unix / Systems Foundations",
+  "era": "1990s",
+  "org": "GNU Project / Free Software Foundation",
+  "why_notable": "Original author of GNU time, the /usr/bin/time program on most Linux distributions (FSF copyright from 1990). His design forks the command, waits for it with wait3/wait4, and turns the kernel's struct rusage into a printf-style report through -f format strings and the TIME environment variable. That design is still the core of GNU time 1.9 and was carried into BusyBox's time applet. Every 'Maximum resident set size' line that an SRE or HPC engineer reads from /usr/bin/time -v goes back to his code.",
+  "links": {
+    "GNU time": "https://www.gnu.org/software/time/"
+  },
+  "tools": [
+    "time"
+  ],
+  "show_on": [
+    "portfolio"
+  ]
+}

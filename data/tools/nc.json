@@ -1,0 +1,25 @@
+{
+  "name": "nc",
+  "purpose": "netcat, the 'TCP/IP Swiss army knife': opens or listens for raw TCP, UDP and Unix-socket connections and wires them to stdin/stdout, so any shell pipeline can test ports, grab banners, speak text protocols by hand, move files and relay data across the network",
+  "author": "*Hobbit* (original, 1995); Eric Jackson (OpenBSD rewrite, 2001); Chris Wysopal / Weld Pond (Windows NT port, 1998)",
+  "org": "Avian Research (original); OpenBSD project (rewrite used by Debian, Ubuntu, macOS and the BSDs); L0pht (Windows port); Nmap project ships the Ncat reimplementation",
+  "year": "1995",
+  "language": "C",
+  "category": "Hacking Tools",
+  "phase": "Phase 2 — Scanning & Enumeration",
+  "why_notable": "Hobbit announced netcat on Bugtraq on 28 October 1995 (final release 1.10, March 1996) as a network version of cat: telnet was the only general TCP client of the day, and it mangled binary data, injected option negotiation and mixed errors into its output, while nc moved bytes faithfully between a socket and a pipe and kept errors on stderr. Hobbit's source also had -e program execution, compiled only when a flag literally named GAPING_SECURITY_HOLE was set. Chris Wysopal (Weld Pond) of L0pht ported it to Windows NT in 1998. Eric Jackson's 2001 clean-room rewrite for OpenBSD dropped exec on security grounds and added IPv6, SOCKS/HTTP CONNECT proxies, Unix sockets, -k persistent listeners and -N half-close; Bob Beck added TLS (-c, via LibreSSL libtls) in OpenBSD 5.9. That rewrite is now the default nc on Debian, Ubuntu, the BSDs and, as an Apple fork, macOS. Debian's build is patched (it adds -q, accepts -l -p and has no TLS). GNU netcat (Giovanni Giacobbi), BusyBox nc and the Nmap project's Ncat (no shared code; SSL, proxies, brokering, access control, and the nc on RHEL/Fedora via nmap-ncat) followed. The variants share a name but differ: -k means TCP keepalive in Hobbit's version and keep listening in OpenBSD's; -c runs a shell command in one and enables TLS in the other; scan output reads 'open' or 'succeeded!'. Scripts should therefore detect the variant (nc -h) and rely on exit codes. nc sits at layer 4, between application clients (curl, psql, openssl s_client) and packet tools (hping3, scapy), and is unprivileged, tiny and nearly always installed. Network engineers use it to verify firewall changes and to tell RST (refused) from DROP (timeout). Pentesters and CTF players use it for banner grabbing, quick port checks and file transfer in authorised labs. SOC analysts hunt for it as a backdoor indicator. Sysadmins and SREs use nc -z in wait-for-port loops and Kubernetes debugging, developers use it to speak HTTP, SMTP or Redis by hand and to read Docker and other Unix sockets, and embedded engineers rely on BusyBox nc as the only network tool on a device. Its limits: cleartext with no authentication unless TLS is used, a UDP 'scan' that only infers results from ICMP, and on Windows it is not built in (Ncat or PowerShell Test-NetConnection, TCP only, instead).",
+  "links": {
+    "Homepage": "https://nc110.sourceforge.io/",
+    "OpenBSD nc(1) man page": "https://man.openbsd.org/nc.1",
+    "OpenBSD source": "https://cvsweb.openbsd.org/src/usr.bin/nc/",
+    "Ncat (Nmap)": "https://nmap.org/ncat/",
+    "Ncat compatibility matrix": "https://secwiki.org/w/Ncat/Compatibility",
+    "Original Bugtraq announcement": "https://seclists.org/bugtraq/1995/Oct/28",
+    "Library guide": "https://fmfalgun.github.io/library/?page=nc-guide",
+    "Study notes": "https://github.com/fmfalgun/library-data/blob/main/notes/tools/nc.md"
+  },
+  "show_on": [
+    "portfolio",
+    "vapt"
+  ]
+}

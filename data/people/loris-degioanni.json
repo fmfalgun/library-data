@@ -1,0 +1,20 @@
+{
+  "name": "Loris Degioanni",
+  "handle": null,
+  "domain": "Packet Capture & Cloud Security",
+  "era": "1990s-present",
+  "org": "Politecnico di Torino (WinPcap); CACE Technologies (co-founder); Riverbed Technology; Sysdig (founder and CTO); Wireshark Foundation (board)",
+  "why_notable": "Created WinPcap at the Politecnico di Torino, the Windows port of the BPF/libpcap capture architecture that let Ethereal, Wireshark, nmap and countless other tools capture packets on Windows for over a decade (later succeeded by Npcap). At CACE Technologies he hired Gerald Combs in 2006, and together they launched Wireshark under its new name; CACE was acquired by Riverbed in 2010. He then founded Sysdig, applying the same capture-and-filter idea to Linux system calls with the sysdig tool and the CNCF runtime-security project Falco, and Sysdig became Wireshark's lead sponsor before creating the independent Wireshark Foundation in 2023, on whose board he sits. Wireshark's sister tool Stratoshark, which analyses Falco system-call captures with Wireshark's engine, joins the two halves of his work.",
+  "links": {
+    "Sysdig": "https://sysdig.com",
+    "Falco": "https://falco.org",
+    "Wireshark Foundation announcement": "https://www.sysdig.com/press-releases/wireshark-foundation"
+  },
+  "tools": [
+    "Wireshark"
+  ],
+  "show_on": [
+    "portfolio",
+    "vapt"
+  ]
+}

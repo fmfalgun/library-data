@@ -1,0 +1,19 @@
+{
+  "name": "Howard Chu",
+  "handle": "hyc",
+  "domain": "Directory Services & Database Engines",
+  "era": "1990s-present",
+  "org": "Symas Corp (founder and CTO); OpenLDAP Project (chief architect)",
+  "why_notable": "Howard Chu is the long-time chief architect of OpenLDAP and founder and CTO of Symas Corp, the company behind most current OpenLDAP development and support; he is listed among the core contributors on recent 2.6 LTS releases. He designed LMDB (Lightning Memory-Mapped Database), the copy-on-write, memory-mapped B+tree engine that replaced Berkeley DB as slapd's storage backend (back-mdb, the data.mdb and lock.mdb files under /var/lib/ldap) and gave OpenLDAP very fast, crash-safe reads where readers never block writers. LMDB has since spread far beyond LDAP into other databases, caches and blockchain nodes. His work on slapd's dynamic configuration, replication and performance is a large part of why OpenLDAP remains the standard open-source LDAP server.",
+  "links": {
+    "Symas": "https://www.symas.com",
+    "GitHub": "https://github.com/hyc",
+    "OpenLDAP": "https://www.openldap.org"
+  },
+  "tools": [
+    "LDAP"
+  ],
+  "show_on": [
+    "portfolio"
+  ]
+}

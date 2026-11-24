@@ -1,0 +1,18 @@
+{
+  "name": "David Ahern",
+  "handle": null,
+  "domain": "Linux Kernel Networking & iproute2 Maintenance",
+  "era": "2010s-present",
+  "org": "Linux kernel networking community (dsahern@kernel.org); employer not verified here",
+  "why_notable": "Co-maintainer of iproute2 alongside Stephen Hemminger (listed in the project README, and noted as a maintainer as of December 2013). He runs the iproute2-next tree on kernel.org, where new features are staged and kernel header updates are merged before they flow into the main branch and the next release, so most new ip, bridge and tc functionality passes through his tree.",
+  "links": {
+    "iproute2-next tree": "https://www.kernel.org/pub/scm/network/iproute2/iproute2-next.git/log/",
+    "iproute2 (Wikipedia)": "https://en.wikipedia.org/wiki/Iproute2"
+  },
+  "tools": [
+    "ip"
+  ],
+  "show_on": [
+    "portfolio"
+  ]
+}

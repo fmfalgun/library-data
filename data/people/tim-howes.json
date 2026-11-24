@@ -1,0 +1,18 @@
+{
+  "name": "Tim Howes",
+  "handle": null,
+  "domain": "Directory Services & Internet Identity",
+  "era": "1990s-present",
+  "org": "University of Michigan; Netscape Communications; Loudcloud/Opsware (co-founder)",
+  "why_notable": "Tim Howes led the National Science Foundation-backed directory project at the University of Michigan that created LDAP. With Wengyik Yeong (Performance Systems International) and Steve Kille (ISODE Consortium) he wrote RFC 1487 (July 1993), the first LDAP specification, which made the OSI X.500 directory usable over plain TCP, and he co-authored the follow-on LDAPv2 (RFC 1777, 1995) and LDAPv3 (RFC 2251, 1997) standards. His U-M team, including Mark Smith and Gordon Good, released the first LDAP software in 1992; that slapd code became the reference implementation, the ancestor of both OpenLDAP and Netscape Directory Server (today's 389 Directory Server). He joined Netscape when it licensed U-M's LDAP technology in 1996 to build its directory server, co-wrote the standard book 'Understanding and Deploying LDAP Directory Services' with Mark Smith and Gordon Good, and later co-founded the infrastructure company Loudcloud (later Opsware). Every Active Directory, OpenLDAP and FreeIPA deployment speaks the protocol his group designed.",
+  "links": {
+    "RFC 1487": "https://www.rfc-editor.org/rfc/rfc1487",
+    "LDAP history (Linux Journal)": "https://www.linuxjournal.com/content/ldap-series-part-iii-historical-secrets"
+  },
+  "tools": [
+    "LDAP"
+  ],
+  "show_on": [
+    "portfolio"
+  ]
+}

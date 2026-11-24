@@ -1,0 +1,20 @@
+{
+  "name": "Marco d'Itri",
+  "handle": "rfc1036",
+  "domain": "Networking, DNS & Internet Infrastructure",
+  "era": "1990s-present",
+  "org": "Seeweb (Italy); Debian Project; RIPE community; ITNOG; MINAP",
+  "why_notable": "Italian network engineer and Debian developer (since 1997) who wrote the whois client found on practically every Linux distribution, starting from scratch in 1999 because the existing clients were obsolete or bloated. His 'intelligent' client picks the correct registry, registrar, RIR or IRR server for a domain, IP address, ASN or handle from its own curated table, which he has kept current for over 25 years as TLDs appeared and disappeared, plus RIPE-style query flags and UTF-8 handling (5.6.x); the same package ships mkpasswd. Since 2006 he has designed and run the network, DNS and mail infrastructure at Seeweb, an Italian cloud and colocation provider; he is a long-time IPv6 and DNSSEC advocate, co-maintains the MINAP community IXP, is a founder and board member of ITNOG, and is active in the RIPE community. His handle rfc1036 is the RFC for the Usenet news format.",
+  "links": {
+    "Website": "https://www.linux.it/~md/",
+    "GitHub": "https://github.com/rfc1036",
+    "whois": "https://github.com/rfc1036/whois",
+    "Blog": "https://blog.bofh.it/"
+  },
+  "tools": [
+    "whois"
+  ],
+  "show_on": [
+    "portfolio"
+  ]
+}
